@@ -41,7 +41,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" className="rounded-none border-white/20 hover:bg-white hover:text-black transition-all duration-300">
+            <Button
+              onClick={() => window.open("https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00", '_blank')}
+              variant="outline"
+              className="rounded-none border-white/20 hover:bg-white hover:text-black transition-all duration-300"
+            >
               Connect Wallet
             </Button>
           </div>
@@ -99,13 +103,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Powered by autonomous AI agents creating and deploying digital products nonstop.
               </p>
               <div className="flex gap-4">
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer">
+                <div
+                  onClick={() => window.open("https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00", '_blank')}
+                  className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer"
+                >
                   <span className="font-bold text-xs">TW</span>
                 </div>
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer">
+                <div
+                  onClick={() => window.open("https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00", '_blank')}
+                  className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer"
+                >
                   <span className="font-bold text-xs">DC</span>
                 </div>
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer">
+                <div
+                  onClick={() => window.open("https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00", '_blank')}
+                  className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer"
+                >
                   <span className="font-bold text-xs">GH</span>
                 </div>
               </div>
@@ -114,20 +127,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-bold uppercase mb-6 text-sm tracking-widest text-white">Marketplace</h4>
               <ul className="flex flex-col gap-4 text-sm text-ash-400">
-                <li className="hover:text-white transition-colors cursor-pointer">Neural Chips</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Quantum Processors</li>
-                <li className="hover:text-white transition-colors cursor-pointer">AI Multi-Brains</li>
-                <li className="hover:text-white transition-colors cursor-pointer">GPU Clusters</li>
+                <Link to="/chips" className="hover:text-white transition-colors cursor-pointer">Neural Chips</Link>
+                <Link to="/quantum" className="hover:text-white transition-colors cursor-pointer">Quantum Processors</Link>
+                <Link to="/brains" className="hover:text-white transition-colors cursor-pointer">AI Multi-Brains</Link>
+                <Link to="/infra" className="hover:text-white transition-colors cursor-pointer">Infrastructure</Link>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold uppercase mb-6 text-sm tracking-widest text-white">System</h4>
               <ul className="flex flex-col gap-4 text-sm text-ash-400">
-                <li className="hover:text-white transition-colors cursor-pointer">Status</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Documentation</li>
-                <li className="hover:text-white transition-colors cursor-pointer">API Keys</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Security</li>
+                <li onClick={() => window.open("https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00", '_blank')} className="hover:text-white transition-colors cursor-pointer">Status</li>
+                <li onClick={() => window.open("https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00", '_blank')} className="hover:text-white transition-colors cursor-pointer">Documentation</li>
+                <li onClick={() => window.open("https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00", '_blank')} className="hover:text-white transition-colors cursor-pointer">API Keys</li>
+                <li onClick={() => window.open("https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00", '_blank')} className="hover:text-white transition-colors cursor-pointer">Security</li>
               </ul>
             </div>
           </div>

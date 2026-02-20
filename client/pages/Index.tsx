@@ -406,14 +406,17 @@ export default function Index() {
           </div>
           
           <div className="relative aspect-square border border-white/10 bg-black overflow-hidden group">
-            <div className="absolute inset-0 p-12 flex items-center justify-center">
+            <div
+              onClick={() => window.open(STRIPE_LINK, '_blank')}
+              className="absolute inset-0 p-12 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors z-20"
+            >
               <div className="grid grid-cols-3 grid-rows-3 gap-4 w-full h-full opacity-20 group-hover:opacity-40 transition-opacity duration-1000">
                 {Array.from({ length: 9 }).map((_, i) => (
                   <div key={i} className="border border-white/20 animate-pulse" style={{ animationDelay: `${i * 200}ms` }} />
                 ))}
               </div>
             </div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
               <Brain size={120} className="text-white mb-4 animate-pulse" />
               <span className="text-[10px] uppercase tracking-[0.5em] text-ash-400 font-bold">Neural Core Active</span>
             </div>

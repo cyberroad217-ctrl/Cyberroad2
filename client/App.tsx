@@ -11,6 +11,9 @@ import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import Marketplace from "./pages/Marketplace";
 import NeuralChips from "./pages/NeuralChips";
+import MultiBrains from "./pages/MultiBrains";
+import QuantumUnits from "./pages/QuantumUnits";
+import Infrastructure from "./pages/Infrastructure";
 
 const queryClient = new QueryClient();
 
@@ -38,9 +41,9 @@ const App = () => (
           <Route path="/" element={<Layout><Index /></Layout>} />
           <Route path="/marketplace" element={<Layout><Marketplace /></Layout>} />
           <Route path="/chips" element={<NeuralChips />} />
-          <Route path="/brains" element={<PlaceholderPage title="Multi Brains" />} />
-          <Route path="/quantum" element={<PlaceholderPage title="Quantum Units" />} />
-          <Route path="/infra" element={<PlaceholderPage title="Infrastructure" />} />
+          <Route path="/brains" element={<MultiBrains />} />
+          <Route path="/quantum" element={<QuantumUnits />} />
+          <Route path="/infra" element={<Infrastructure />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
