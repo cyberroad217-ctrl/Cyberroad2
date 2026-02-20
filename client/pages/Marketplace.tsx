@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Cpu, Zap, Brain, Database, Shield, Activity, Share2, Search, Filter } from "lucide-react";
+import { Cpu, Zap, Brain, Database, Shield, Activity, Share2, Search, Filter, Microchip } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,9 @@ const allProducts = [
   { id: "gpu-1", name: "Neural GPU Cluster", category: "Graphics", price: "0.12 ETH", icon: <Activity />, description: "Distributed GPU network.", stats: { cores: "1.2M", memory: "48TB" } },
   { id: "qpu-1", name: "Quantum QPU-7", category: "Quantum", price: "2.5 ETH", icon: <Zap />, description: "Quantum Processing Unit.", stats: { qubits: "512", coherence: "98ms" } },
   { id: "ram-1", name: "LQD Neural RAM", category: "Memory", price: "0.015 ETH", icon: <Database />, description: "Liquid-state memory.", stats: { latency: "0ns", capacity: "1PB" } },
-  { id: "chips-1", name: "AI Neural Chips", category: "Chips", price: "0.08 ETH", icon: <Shield />, description: "Biomimetic neural chips.", stats: { synapses: "100B", bio: "94%" } },
+  { id: "chips-1", name: "AI Neural Chips", category: "Chips", price: "0.08 ETH", icon: <Microchip />, description: "Biomimetic neural chips.", stats: { synapses: "100B", bio: "94%" } },
+  { id: "chips-2", name: "Quantum Neural Core", category: "Chips", price: "0.25 ETH", icon: <Zap />, description: "Quantum-powered neural core.", stats: { qubits: "128", efficiency: "99.9%" } },
+  { id: "chips-3", name: "Bio-Link Chipset", category: "Chips", price: "0.45 ETH", icon: <Activity />, description: "Biological integration chipset.", stats: { sync: "99.9%", latency: "0.01ms" } },
   { id: "brains-1", name: "Multi-Brain Node", category: "Intelligence", price: "5.0 ETH", icon: <Brain />, description: "Collective intelligence node.", stats: { nodes: "128", iq: "12000" } },
   { id: "cpu-2", name: "AI Core CPU v10", category: "Processor", price: "0.055 ETH", icon: <Cpu />, description: "Next-gen neural CPU.", stats: { speed: "15.8 THz", efficiency: "99.9%" } },
   { id: "gpu-2", name: "Neural GPU v2", category: "Graphics", price: "0.15 ETH", icon: <Activity />, description: "Optimized GPU cluster.", stats: { cores: "2.4M", memory: "96TB" } },
@@ -119,7 +121,10 @@ export default function Marketplace() {
               >
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-6">
-                    <div className="p-4 border border-white/10 bg-black group-hover:border-white transition-colors">
+                    <div
+                      onClick={() => window.open(STRIPE_LINK, '_blank')}
+                      className="p-4 border border-white/10 bg-black group-hover:border-white transition-colors cursor-pointer hover:bg-white hover:text-black"
+                    >
                       {product.icon}
                     </div>
                     <Badge variant="secondary" className="rounded-none bg-white/5 text-ash-400 border-none uppercase text-[9px] tracking-widest">

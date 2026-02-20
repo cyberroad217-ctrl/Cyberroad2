@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { Cpu, Zap, Brain, Database, Plus, ArrowRight, Shield, Activity, Share2, Globe, Lock, Terminal, BarChart3, Radio, Layers, HardDrive } from "lucide-react";
+import { Cpu, Zap, Brain, Database, Plus, ArrowRight, Shield, Activity, Share2, Globe, Lock, Terminal, BarChart3, Radio, Layers, HardDrive, Microchip } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
@@ -48,9 +48,27 @@ const products = [
     name: "AI Neural Chips",
     category: "Chips",
     price: "0.08 ETH",
-    icon: <Shield className="w-8 h-8" />,
+    icon: <Microchip className="w-8 h-8" />,
     description: "Biomimetic neural chips for seamless AI-human interface integration.",
     stats: { synapses: "100B", bio: "94%" }
+  },
+  {
+    id: "chips-adv",
+    name: "Quantum Neural Core",
+    category: "Chips",
+    price: "0.25 ETH",
+    icon: <Zap className="w-8 h-8" />,
+    description: "Advanced quantum-powered neural core for instant AI processing.",
+    stats: { qubits: "128", efficiency: "99.99%" }
+  },
+  {
+    id: "chips-bio",
+    name: "Bio-Link Chipset",
+    category: "Chips",
+    price: "0.45 ETH",
+    icon: <Activity className="w-8 h-8" />,
+    description: "Full biological integration chipset for direct neural linking.",
+    stats: { sync: "99.9%", latency: "0.01ms" }
   },
   {
     id: "brains",
@@ -246,7 +264,7 @@ export default function Index() {
             { name: "QPU", icon: <Zap /> },
             { name: "RAM", icon: <Database /> },
             { name: "Neural Quantum Chip", icon: <Shield /> },
-            { name: "AI Neural Chips", icon: <Radio /> },
+            { name: "AI Neural Chips", icon: <Microchip /> },
             { name: "Multi Brains", icon: <Brain /> },
           ].map((tool, i) => (
             <motion.button
@@ -301,7 +319,10 @@ export default function Index() {
               
               <div className="p-10 relative z-10">
                 <div className="flex justify-between items-start mb-8">
-                  <div className="p-5 border border-white/10 bg-black group-hover:border-white transition-all duration-500">
+                  <div
+                    onClick={() => window.open(STRIPE_LINK, '_blank')}
+                    className="p-5 border border-white/10 bg-black group-hover:border-white transition-all duration-500 cursor-pointer hover:bg-white hover:text-black"
+                  >
                     {product.icon}
                   </div>
                   <Badge variant="secondary" className="rounded-none bg-white/5 text-ash-400 border-none uppercase text-[9px] tracking-[0.2em] px-4 py-1">

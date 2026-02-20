@@ -5,11 +5,12 @@ import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import Marketplace from "./pages/Marketplace";
+import NeuralChips from "./pages/NeuralChips";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Layout><Index /></Layout>} />
           <Route path="/marketplace" element={<Layout><Marketplace /></Layout>} />
-          <Route path="/chips" element={<PlaceholderPage title="Neural Chips" />} />
+          <Route path="/chips" element={<NeuralChips />} />
           <Route path="/brains" element={<PlaceholderPage title="Multi Brains" />} />
           <Route path="/quantum" element={<PlaceholderPage title="Quantum Units" />} />
           <Route path="/infra" element={<PlaceholderPage title="Infrastructure" />} />
