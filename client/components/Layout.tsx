@@ -63,8 +63,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Mobile Nav */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black pt-24 px-4 md:hidden">
-          <nav className="flex flex-col gap-6">
+        <div className="fixed inset-0 z-40 bg-black pt-24 px-4 md:hidden overflow-y-auto">
+          <nav className="flex flex-col gap-6 pb-20">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -76,6 +76,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {link.name}
               </Link>
             ))}
+
+            {/* Additional Legal Links for Mobile */}
+            <div className="mt-8 flex flex-col gap-4">
+              <span className="text-[10px] uppercase font-bold tracking-[0.4em] text-ash-500 mb-2">Legal Protocol</span>
+              <Link to="/refund" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-ash-400 hover:text-white transition-colors">Refund Policy</Link>
+              <Link to="/terms" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-ash-400 hover:text-white transition-colors">Terms of Service</Link>
+              <Link to="/privacy" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-ash-400 hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/delivery" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-ash-400 hover:text-white transition-colors">Delivery Terms</Link>
+            </div>
           </nav>
         </div>
       )}
@@ -156,10 +165,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <p className="text-xs text-ash-500 uppercase tracking-tighter">
               &copy; 2024 CYBER ROAD NEURAL SYSTEMS. ALL RIGHTS RESERVED.
             </p>
-            <div className="flex gap-8">
+            <div className="flex gap-8 flex-wrap justify-center md:justify-end">
               <Link to="/privacy" className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Privacy Policy</Link>
               <Link to="/terms" className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Terms of Service</Link>
               <Link to="/refund" className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Refund Policy</Link>
+              <Link to="/delivery" className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Delivery Terms</Link>
             </div>
           </div>
         </div>

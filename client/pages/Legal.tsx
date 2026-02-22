@@ -37,10 +37,22 @@ const policies = [
       "Processing of refunds takes 3-5 business days back to the original payment method.",
       "Subscriptions to neural infrastructure services may have different refund conditions as stated during procurement."
     ]
+  },
+  {
+    title: "Delivery Terms",
+    path: "/delivery",
+    icon: <FileText className="w-12 h-12" />,
+    content: [
+      "All digital products on Cyber Road are delivered instantly via secure download links.",
+      "Upon successful transaction, you will receive an email with your unique neural access keys.",
+      "Delivery is performed through our global edge network to ensure zero-latency distribution.",
+      "If you do not receive your download link within 60 seconds, please check your network filters or contact support.",
+      "Large infrastructure deployments may require up to 5 minutes for full neural cluster synchronization."
+    ]
   }
 ];
 
-export default function LegalPage({ type }: { type: 'terms' | 'privacy' | 'refund' }) {
+export default function LegalPage({ type }: { type: 'terms' | 'privacy' | 'refund' | 'delivery' }) {
   const policy = policies.find(p => p.path === `/${type}`) || policies[0];
 
   return (
