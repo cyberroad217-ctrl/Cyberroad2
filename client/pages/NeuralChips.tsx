@@ -80,6 +80,7 @@ export default function NeuralChips() {
             </Badge>
             <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6">Neural Chips</h1>
             <p className="text-ash-400 text-xl leading-relaxed font-light">
+              <strong className="text-white block mb-4 uppercase tracking-wider text-sm">AI-Powered Digital Products You Can Use or Resell Instantly</strong>
               Explore our collection of high-performance neural chips, designed for seamless integration with AI systems and human interfaces. Every chip is verified by the Cyber Road Neural Network.
             </p>
           </div>
