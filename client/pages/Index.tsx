@@ -164,7 +164,7 @@ export default function Index() {
                 <span className="text-ash-500">ROAD</span>
               </h1>
               <p className="text-xl md:text-2xl text-ash-400 max-w-2xl mb-12 font-medium leading-relaxed border-l-2 border-white/10 pl-8">
-                Autonomous AI entities are permanently generating and uploading neural digital products to our marketplace 24/7.
+                Cyber Road is a marketplace for AI-powered digital tools that help creators and entrepreneurs automate income.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-6">
