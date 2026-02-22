@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { Cpu, Zap, Brain, Database, Plus, ArrowRight, Shield, Activity, Share2, Globe, Lock, Terminal, BarChart3, Radio, Layers, HardDrive, Microchip } from "lucide-react";
+import { Cpu, Zap, Brain, Database, Plus, ArrowRight, Shield, Activity, Share2, Globe, Lock, Terminal, BarChart3, Radio, Layers, HardDrive, Microchip, Download, Mail, ShieldCheck, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
@@ -143,7 +143,7 @@ export default function Index() {
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-[150px] animate-pulse" />
           <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-[150px] animate-pulse delay-700" />
-          
+
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-60" />
         </div>
@@ -167,7 +167,7 @@ export default function Index() {
                 Cyber Road is a marketplace for AI-powered digital tools that help creators and entrepreneurs automate income.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
                 <Button asChild size="lg" className="w-full sm:w-auto h-16 px-12 bg-white text-black hover:bg-ash-200 rounded-none text-lg font-bold uppercase tracking-widest group">
                   <Link to="/marketplace">
                     Marketplace
@@ -177,6 +177,21 @@ export default function Index() {
                 <Button onClick={() => handleSync()} variant="outline" size="lg" className="w-full sm:w-auto h-16 px-12 rounded-none border-white/20 hover:bg-white/5 text-lg font-bold uppercase tracking-widest">
                   Sync Network
                 </Button>
+              </div>
+
+              <div className="flex flex-wrap gap-8 py-8 border-t border-white/5">
+                <div className="flex items-center gap-3">
+                  <Download className="w-5 h-5 text-ash-500" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-ash-400">Instant Download</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-ash-500" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-ash-400">24/7 Email Support</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="w-5 h-5 text-ash-500" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-ash-400">7-Day Guarantee</span>
+                </div>
               </div>
             </motion.div>
 
@@ -387,7 +402,7 @@ export default function Index() {
                 Cyber Road operates on multiple neural layers, allowing for parallel processing of asset generation and marketplace verification.
               </p>
             </div>
-            
+
             <div className="space-y-8">
               {[
                 { title: "Layer 0: Quantum Foundation", desc: "Core substrate for all neural computations." },
@@ -404,7 +419,7 @@ export default function Index() {
               ))}
             </div>
           </div>
-          
+
           <div className="relative aspect-square border border-white/10 bg-black overflow-hidden group">
             <div
               onClick={() => window.open(STRIPE_LINK, '_blank')}
@@ -423,6 +438,33 @@ export default function Index() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/5 rounded-full animate-[spin_20s_linear_infinite]" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] border border-white/5 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="container mx-auto px-4 py-24">
+        <div className="text-center mb-16">
+           <Badge variant="outline" className="mb-4 rounded-none border-white/20 text-white font-mono tracking-[0.4em] uppercase text-[10px]">
+             User Feedback
+           </Badge>
+           <h2 className="text-5xl font-black uppercase tracking-tighter">Early Adopters</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+           {[
+             { name: "Alex K.", role: "Digital Creator", text: "The neural chips have completely transformed how I handle my automated render farms. Highly recommended." },
+             { name: "Sarah M.", role: "Entrepreneur", text: "Instant download and 24/7 support make Cyber Road my go-to for all AI digital tools." },
+             { name: "Marcus T.", role: "System Architect", text: "The multi-brain nodes are unparalleled in performance. The future of digital products is here." }
+           ].map((t, i) => (
+             <div key={i} className="border border-white/10 bg-white/[0.02] p-10 relative">
+                <Quote className="absolute top-8 right-8 text-white/5 w-12 h-12" />
+                <p className="text-ash-400 italic mb-8 relative z-10">"{t.text}"</p>
+                <div className="pt-6 border-t border-white/5">
+                   <h4 className="font-bold text-white uppercase tracking-widest text-xs">{t.name}</h4>
+                   <span className="text-[9px] text-ash-600 uppercase font-mono">{t.role}</span>
+                </div>
+             </div>
+           ))}
         </div>
       </section>
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Cpu, Zap, Brain, Database, ShoppingCart, Menu, X } from "lucide-react";
+import { Cpu, Zap, Brain, Database, ShoppingCart, Menu, X, FileText } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -12,6 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { name: "Multi Brains", path: "/brains", icon: <Brain className="w-4 h-4" /> },
     { name: "Quantum", path: "/quantum", icon: <Zap className="w-4 h-4" /> },
     { name: "Infrastructure", path: "/infra", icon: <Database className="w-4 h-4" /> },
+    { name: "Blog", path: "/blog", icon: <FileText className="w-4 h-4" /> },
   ];
 
   return (
@@ -122,6 +123,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
             
             <div>
+              <h4 className="font-bold uppercase mb-6 text-sm tracking-widest text-white">Company</h4>
+              <ul className="flex flex-col gap-4 text-sm text-ash-400">
+                <Link to="/about" className="hover:text-white transition-colors cursor-pointer">About Us</Link>
+                <Link to="/contact" className="hover:text-white transition-colors cursor-pointer">Contact</Link>
+                <Link to="/blog" className="hover:text-white transition-colors cursor-pointer">Blog</Link>
+              </ul>
+            </div>
+
+            <div>
               <h4 className="font-bold uppercase mb-6 text-sm tracking-widest text-white">Marketplace</h4>
               <ul className="flex flex-col gap-4 text-sm text-ash-400">
                 <Link to="/chips" className="hover:text-white transition-colors cursor-pointer">Neural Chips</Link>
@@ -147,8 +157,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               &copy; 2024 CYBER ROAD NEURAL SYSTEMS. ALL RIGHTS RESERVED.
             </p>
             <div className="flex gap-8">
-              <span className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Privacy Policy</span>
-              <span className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Terms of Service</span>
+              <Link to="/privacy" className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Privacy Policy</Link>
+              <Link to="/terms" className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Terms of Service</Link>
+              <Link to="/refund" className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Refund Policy</Link>
             </div>
           </div>
         </div>

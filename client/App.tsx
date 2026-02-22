@@ -14,6 +14,11 @@ import NeuralChips from "./pages/NeuralChips";
 import MultiBrains from "./pages/MultiBrains";
 import QuantumUnits from "./pages/QuantumUnits";
 import Infrastructure from "./pages/Infrastructure";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import LegalPage from "./pages/Legal";
+import Blog from "./pages/Blog";
+import Article from "./pages/Article";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +49,13 @@ const App = () => (
           <Route path="/brains" element={<MultiBrains />} />
           <Route path="/quantum" element={<QuantumUnits />} />
           <Route path="/infra" element={<Infrastructure />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<LegalPage type="terms" />} />
+          <Route path="/privacy" element={<LegalPage type="privacy" />} />
+          <Route path="/refund" element={<LegalPage type="refund" />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<Article />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
