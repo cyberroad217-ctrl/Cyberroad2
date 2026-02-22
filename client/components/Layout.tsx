@@ -75,9 +75,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {link.name}
               </Link>
             ))}
-            <Button className="w-full h-14 text-lg font-bold rounded-none bg-white text-black mt-4">
-              Connect Wallet
-            </Button>
           </nav>
         </div>
       )}

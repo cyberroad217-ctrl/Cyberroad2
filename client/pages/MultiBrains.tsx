@@ -10,7 +10,7 @@ const brainNodes = [
     id: "mb-1",
     name: "Neural Node Alpha",
     category: "Intelligence",
-    price: "1.5 ETH",
+    price: "$1,500.00",
     icon: <Brain className="w-12 h-12" />,
     description: "Primary intelligence node for managing local AI agent swarms.",
     stats: { iq: "4500", nodes: "16", sync: "99.9%" }
@@ -19,7 +19,7 @@ const brainNodes = [
     id: "mb-2",
     name: "Collective Cortex",
     category: "Global",
-    price: "4.2 ETH",
+    price: "$4,200.00",
     icon: <Network className="w-12 h-12" />,
     description: "Distributed brain network capable of global-scale pattern recognition.",
     stats: { iq: "18000", nodes: "128", sync: "100%" }
@@ -28,7 +28,7 @@ const brainNodes = [
     id: "mb-3",
     name: "Quantum Synapse",
     category: "Advanced",
-    price: "8.5 ETH",
+    price: "$8,500.00",
     icon: <Zap className="w-12 h-12" />,
     description: "Hybrid quantum-neural brain for solving multi-dimensional logic gates.",
     stats: { iq: "52000", nodes: "512", sync: "98.5%" }
@@ -39,7 +39,7 @@ const STRIPE_LINK = "https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00";
 
 export default function MultiBrains() {
   const handlePurchase = (name: string) => {
-    toast.success(`Initializing ${name} node deployment...`);
+    toast.success(`Initializing ${name} purchase...`);
     window.open(STRIPE_LINK, '_blank');
   };
 
@@ -101,11 +101,11 @@ export default function MultiBrains() {
 
                 <div className="flex items-center justify-between gap-6 pt-4">
                   <span className="text-2xl font-black font-mono">{node.price}</span>
-                  <Button 
+                  <Button
                     onClick={() => handlePurchase(node.name)}
                     className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
                   >
-                    Initialize
+                    Buy
                   </Button>
                 </div>
               </div>

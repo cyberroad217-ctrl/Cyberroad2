@@ -10,7 +10,7 @@ const infraItems = [
     id: "infra-1",
     name: "Neural Datacenter",
     category: "Infrastructure",
-    price: "12.0 ETH",
+    price: "$12,000.00",
     icon: <Server className="w-12 h-12" />,
     description: "Full-scale neural processing datacenter for massive AI operations.",
     stats: { throughput: "128PB/s", storage: "5000EB", power: "2.4GW" }
@@ -19,7 +19,7 @@ const infraItems = [
     id: "infra-2",
     name: "Global Edge Network",
     category: "Connectivity",
-    price: "4.5 ETH",
+    price: "$4,500.00",
     icon: <Globe className="w-12 h-12" />,
     description: "Low-latency edge network for distributed AI model deployment.",
     stats: { nodes: "14,500", latency: "0.2ms", availability: "99.999%" }
@@ -28,7 +28,7 @@ const infraItems = [
     id: "infra-3",
     name: "Quantum Storage Array",
     category: "Storage",
-    price: "8.0 ETH",
+    price: "$8,000.00",
     icon: <Database className="w-12 h-12" />,
     description: "Quantum-entangled storage for instantaneous data access across any distance.",
     stats: { capacity: "Infinite*", speed: "Instant", redundancy: "10x" }
@@ -39,7 +39,7 @@ const STRIPE_LINK = "https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00";
 
 export default function Infrastructure() {
   const handlePurchase = (name: string) => {
-    toast.success(`Initializing ${name} setup...`);
+    toast.success(`Initializing ${name} purchase...`);
     window.open(STRIPE_LINK, '_blank');
   };
 
@@ -101,11 +101,11 @@ export default function Infrastructure() {
 
                 <div className="flex items-center justify-between gap-6 pt-4">
                   <span className="text-2xl font-black font-mono">{item.price}</span>
-                  <Button 
+                  <Button
                     onClick={() => handlePurchase(item.name)}
                     className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
                   >
-                    Provision
+                    Buy
                   </Button>
                 </div>
               </div>

@@ -10,7 +10,7 @@ const chipProducts = [
     id: "nc-1",
     name: "AI Neural Chip v1",
     category: "Neural",
-    price: "0.08 ETH",
+    price: "$80.00",
     icon: <Shield className="w-12 h-12" />,
     description: "Standard biomimetic neural chip for basic AI-human interface integration.",
     stats: { synapses: "100B", bio: "94%", power: "2.5W" }
@@ -19,7 +19,7 @@ const chipProducts = [
     id: "nc-2",
     name: "Quantum Neural Core",
     category: "Quantum",
-    price: "0.25 ETH",
+    price: "$250.00",
     icon: <Zap className="w-12 h-12" />,
     description: "High-performance chip with integrated quantum processing for instant decision making.",
     stats: { synapses: "1.2T", bio: "98%", power: "0.8W" }
@@ -28,7 +28,7 @@ const chipProducts = [
     id: "nc-3",
     name: "Bio-Synthetic Nexus",
     category: "Biological",
-    price: "0.42 ETH",
+    price: "$420.00",
     icon: <Activity className="w-12 h-12" />,
     description: "Advanced synthetic neural pathway chip that replicates human brain patterns.",
     stats: { synapses: "10T", bio: "99.9%", power: "0.1W" }
@@ -37,7 +37,7 @@ const chipProducts = [
     id: "nc-4",
     name: "Edge Neural Link",
     category: "Interface",
-    price: "0.15 ETH",
+    price: "$150.00",
     icon: <Radio className="w-12 h-12" />,
     description: "Long-range wireless neural connection chip for remote drone and swarm control.",
     stats: { synapses: "500B", range: "10km", latency: "0.1ms" }
@@ -46,7 +46,7 @@ const chipProducts = [
     id: "nc-5",
     name: "Crypto-Neural Vault",
     category: "Security",
-    price: "0.33 ETH",
+    price: "$330.00",
     icon: <Binary className="w-12 h-12" />,
     description: "Secure neural storage chip with hardware-level encryption for mental data.",
     stats: { security: "AES-1024", capacity: "100PB", bio: "92%" }
@@ -55,7 +55,7 @@ const chipProducts = [
     id: "nc-6",
     name: "Hyper-Task Processor",
     category: "Compute",
-    price: "0.19 ETH",
+    price: "$190.00",
     icon: <Cpu className="w-12 h-12" />,
     description: "Multitasking specialist chip designed for parallel neural network executions.",
     stats: { threads: "4096", synapses: "800B", clock: "15.2GHz" }
@@ -66,7 +66,7 @@ const STRIPE_LINK = "https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00";
 
 export default function NeuralChips() {
   const handlePurchase = (name: string) => {
-    toast.success(`Initializing ${name} deployment...`);
+    toast.success(`Initializing ${name} purchase...`);
     window.open(STRIPE_LINK, '_blank');
   };
 
@@ -128,11 +128,11 @@ export default function NeuralChips() {
 
                 <div className="flex items-center justify-between gap-6 pt-4">
                   <span className="text-2xl font-black font-mono">{chip.price}</span>
-                  <Button 
+                  <Button
                     onClick={() => handlePurchase(chip.name)}
                     className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
                   >
-                    Purchase
+                    Buy
                   </Button>
                 </div>
               </div>

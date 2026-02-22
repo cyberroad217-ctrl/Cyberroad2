@@ -10,7 +10,7 @@ const quantumUnits = [
     id: "qu-1",
     name: "QPU-7 Neural Core",
     category: "Quantum",
-    price: "2.5 ETH",
+    price: "$2,500.00",
     icon: <Zap className="w-12 h-12" />,
     description: "Standard quantum processing unit for high-speed neural computations.",
     stats: { qubits: "512", coherence: "98ms", error_rate: "0.001%" }
@@ -19,7 +19,7 @@ const quantumUnits = [
     id: "qu-2",
     name: "Entanglement Driver",
     category: "Hardware",
-    price: "1.2 ETH",
+    price: "$1,200.00",
     icon: <Gauge className="w-12 h-12" />,
     description: "Stabilization hardware for maintaining quantum coherence in neural chips.",
     stats: { stability: "99.9%", range: "Global", power: "500W" }
@@ -28,7 +28,7 @@ const quantumUnits = [
     id: "qu-3",
     name: "Sub-Zero Coolant",
     category: "System",
-    price: "0.8 ETH",
+    price: "$800.00",
     icon: <Battery className="w-12 h-12" />,
     description: "Liquid-nitrogen based cooling system for quantum processors.",
     stats: { temp: "-273°C", flow: "5L/min", pressure: "12bar" }
@@ -39,7 +39,7 @@ const STRIPE_LINK = "https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00";
 
 export default function QuantumUnits() {
   const handlePurchase = (name: string) => {
-    toast.success(`Initializing ${name} procurement...`);
+    toast.success(`Initializing ${name} purchase...`);
     window.open(STRIPE_LINK, '_blank');
   };
 
@@ -101,11 +101,11 @@ export default function QuantumUnits() {
 
                 <div className="flex items-center justify-between gap-6 pt-4">
                   <span className="text-2xl font-black font-mono">{unit.price}</span>
-                  <Button 
+                  <Button
                     onClick={() => handlePurchase(unit.name)}
                     className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
                   >
-                    Procure
+                    Buy
                   </Button>
                 </div>
               </div>

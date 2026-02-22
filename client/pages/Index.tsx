@@ -11,7 +11,7 @@ const products = [
     id: "cpu",
     name: "AI Core CPU v9",
     category: "Processor",
-    price: "0.045 ETH",
+    price: "$49.00",
     icon: <Cpu className="w-8 h-8" />,
     description: "Next-gen neural processing unit for massive parallel computations.",
     stats: { speed: "12.4 THz", efficiency: "99.9%" }
@@ -20,7 +20,7 @@ const products = [
     id: "gpu",
     name: "Neural GPU Cluster",
     category: "Graphics",
-    price: "0.12 ETH",
+    price: "$120.00",
     icon: <Activity className="w-8 h-8" />,
     description: "Distributed GPU network specialized for AI model training and rendering.",
     stats: { cores: "1.2M", memory: "48TB" }
@@ -29,7 +29,7 @@ const products = [
     id: "qpu",
     name: "Quantum QPU-7",
     category: "Quantum",
-    price: "2.5 ETH",
+    price: "$2,500.00",
     icon: <Zap className="w-8 h-8" />,
     description: "Quantum Processing Unit capable of solving NP-hard problems in seconds.",
     stats: { qubits: "512", coherence: "98ms" }
@@ -38,7 +38,7 @@ const products = [
     id: "ram",
     name: "LQD Neural RAM",
     category: "Memory",
-    price: "0.015 ETH",
+    price: "$15.00",
     icon: <Database className="w-8 h-8" />,
     description: "Liquid-state memory with zero latency for real-time neural networks.",
     stats: { latency: "0ns", capacity: "1PB" }
@@ -47,7 +47,7 @@ const products = [
     id: "chips",
     name: "AI Neural Chips",
     category: "Chips",
-    price: "0.08 ETH",
+    price: "$80.00",
     icon: <Microchip className="w-8 h-8" />,
     description: "Biomimetic neural chips for seamless AI-human interface integration.",
     stats: { synapses: "100B", bio: "94%" }
@@ -56,7 +56,7 @@ const products = [
     id: "chips-adv",
     name: "Quantum Neural Core",
     category: "Chips",
-    price: "0.25 ETH",
+    price: "$250.00",
     icon: <Zap className="w-8 h-8" />,
     description: "Advanced quantum-powered neural core for instant AI processing.",
     stats: { qubits: "128", efficiency: "99.99%" }
@@ -65,7 +65,7 @@ const products = [
     id: "chips-bio",
     name: "Bio-Link Chipset",
     category: "Chips",
-    price: "0.45 ETH",
+    price: "$450.00",
     icon: <Activity className="w-8 h-8" />,
     description: "Full biological integration chipset for direct neural linking.",
     stats: { sync: "99.9%", latency: "0.01ms" }
@@ -74,7 +74,7 @@ const products = [
     id: "brains",
     name: "Multi-Brain Node",
     category: "Intelligence",
-    price: "5.0 ETH",
+    price: "$5,000.00",
     icon: <Brain className="w-8 h-8" />,
     description: "A collective intelligence node operating on complex neural networks.",
     stats: { nodes: "128", iq: "12000" }
@@ -350,7 +350,7 @@ export default function Index() {
                     <span className="text-2xl font-black font-mono">{product.price}</span>
                   </div>
                   <Button onClick={() => window.open(STRIPE_LINK, '_blank')} size="lg" className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                    Deploy
+                    Buy
                   </Button>
                 </div>
               </div>
@@ -442,7 +442,7 @@ export default function Index() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6 px-4">
               <Button onClick={() => window.open(STRIPE_LINK, '_blank')} size="lg" className="h-20 px-16 bg-white text-black hover:bg-ash-200 rounded-none text-xl font-black uppercase tracking-widest shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all hover:scale-105 active:scale-95">
-                Initialize Deployment
+                Buy
               </Button>
             </div>
           </motion.div>

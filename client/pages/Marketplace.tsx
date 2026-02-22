@@ -7,17 +7,17 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 
 const allProducts = [
-  { id: "cpu-1", name: "AI Core CPU v9", category: "Processor", price: "0.045 ETH", icon: <Cpu />, description: "Neural processing unit.", stats: { speed: "12.4 THz", efficiency: "99.9%" } },
-  { id: "gpu-1", name: "Neural GPU Cluster", category: "Graphics", price: "0.12 ETH", icon: <Activity />, description: "Distributed GPU network.", stats: { cores: "1.2M", memory: "48TB" } },
-  { id: "qpu-1", name: "Quantum QPU-7", category: "Quantum", price: "2.5 ETH", icon: <Zap />, description: "Quantum Processing Unit.", stats: { qubits: "512", coherence: "98ms" } },
-  { id: "ram-1", name: "LQD Neural RAM", category: "Memory", price: "0.015 ETH", icon: <Database />, description: "Liquid-state memory.", stats: { latency: "0ns", capacity: "1PB" } },
-  { id: "chips-1", name: "AI Neural Chips", category: "Chips", price: "0.08 ETH", icon: <Microchip />, description: "Biomimetic neural chips.", stats: { synapses: "100B", bio: "94%" } },
-  { id: "chips-2", name: "Quantum Neural Core", category: "Chips", price: "0.25 ETH", icon: <Zap />, description: "Quantum-powered neural core.", stats: { qubits: "128", efficiency: "99.9%" } },
-  { id: "chips-3", name: "Bio-Link Chipset", category: "Chips", price: "0.45 ETH", icon: <Activity />, description: "Biological integration chipset.", stats: { sync: "99.9%", latency: "0.01ms" } },
-  { id: "brains-1", name: "Multi-Brain Node", category: "Intelligence", price: "5.0 ETH", icon: <Brain />, description: "Collective intelligence node.", stats: { nodes: "128", iq: "12000" } },
-  { id: "cpu-2", name: "AI Core CPU v10", category: "Processor", price: "0.055 ETH", icon: <Cpu />, description: "Next-gen neural CPU.", stats: { speed: "15.8 THz", efficiency: "99.9%" } },
-  { id: "gpu-2", name: "Neural GPU v2", category: "Graphics", price: "0.15 ETH", icon: <Activity />, description: "Optimized GPU cluster.", stats: { cores: "2.4M", memory: "96TB" } },
-  { id: "qpu-2", name: "Quantum QPU-8", category: "Quantum", price: "3.2 ETH", icon: <Zap />, description: "High-coherence QPU.", stats: { qubits: "1024", coherence: "120ms" } },
+  { id: "cpu-1", name: "AI Core CPU v9", category: "Processor", price: "$49.00", icon: <Cpu />, description: "Neural processing unit.", stats: { speed: "12.4 THz", efficiency: "99.9%" } },
+  { id: "gpu-1", name: "Neural GPU Cluster", category: "Graphics", price: "$120.00", icon: <Activity />, description: "Distributed GPU network.", stats: { cores: "1.2M", memory: "48TB" } },
+  { id: "qpu-1", name: "Quantum QPU-7", category: "Quantum", price: "$2,500.00", icon: <Zap />, description: "Quantum Processing Unit.", stats: { qubits: "512", coherence: "98ms" } },
+  { id: "ram-1", name: "LQD Neural RAM", category: "Memory", price: "$15.00", icon: <Database />, description: "Liquid-state memory.", stats: { latency: "0ns", capacity: "1PB" } },
+  { id: "chips-1", name: "AI Neural Chips", category: "Chips", price: "$80.00", icon: <Microchip />, description: "Biomimetic neural chips.", stats: { synapses: "100B", bio: "94%" } },
+  { id: "chips-2", name: "Quantum Neural Core", category: "Chips", price: "$250.00", icon: <Zap />, description: "Quantum-powered neural core.", stats: { qubits: "128", efficiency: "99.9%" } },
+  { id: "chips-3", name: "Bio-Link Chipset", category: "Chips", price: "$450.00", icon: <Activity />, description: "Biological integration chipset.", stats: { sync: "99.9%", latency: "0.01ms" } },
+  { id: "brains-1", name: "Multi-Brain Node", category: "Intelligence", price: "$5,000.00", icon: <Brain />, description: "Collective intelligence node.", stats: { nodes: "128", iq: "12000" } },
+  { id: "cpu-2", name: "AI Core CPU v10", category: "Processor", price: "$55.00", icon: <Cpu />, description: "Next-gen neural CPU.", stats: { speed: "15.8 THz", efficiency: "99.9%" } },
+  { id: "gpu-2", name: "Neural GPU v2", category: "Graphics", price: "$150.00", icon: <Activity />, description: "Optimized GPU cluster.", stats: { cores: "2.4M", memory: "96TB" } },
+  { id: "qpu-2", name: "Quantum QPU-8", category: "Quantum", price: "$3,200.00", icon: <Zap />, description: "High-coherence QPU.", stats: { qubits: "1024", coherence: "120ms" } },
 ];
 
 const STRIPE_LINK = "https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00";
@@ -140,7 +140,7 @@ export default function Marketplace() {
                   <div className="flex items-center justify-between gap-4 pt-4 border-t border-white/5">
                     <span className="text-lg font-black font-mono">{product.price}</span>
                     <Button onClick={() => window.open(STRIPE_LINK, '_blank')} size="sm" className="bg-white text-black hover:bg-ash-200 rounded-none px-6 font-bold uppercase tracking-widest text-[10px] h-10">
-                      Deploy
+                      Buy
                     </Button>
                   </div>
                 </div>
