@@ -8,76 +8,116 @@ import { Link } from "react-router-dom";
 
 const products = [
   {
-    id: "cpu",
-    name: "AI Core CPU v9",
-    category: "Processor",
-    price: "$49.00",
-    icon: <Cpu className="w-8 h-8" />,
-    description: "Next-gen neural processing unit for massive parallel computations.",
-    stats: { speed: "12.4 THz", efficiency: "99.9%" }
+    id: "auto-1",
+    name: "Neural Workflow Automator",
+    category: "AI Automation",
+    price: "$197.00",
+    icon: <Radio className="w-8 h-8" />,
+    description: "Enterprise-grade AI automation system for complex business processes. Includes autonomous agent scripts and integration logic.",
+    details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
+    problem: "Solves time-consuming manual data entry and multi-app orchestration.",
+    target: "For Agency owners and operations managers.",
+    income: "Saves 40+ hours per week through autonomous execution.",
+    includes: "Python Scripts, Zapier/Make Blueprints, Deployment Guide PDF.",
+    stats: { automation: "99.9%", integration: "Webhooks" }
   },
   {
-    id: "gpu",
-    name: "Neural GPU Cluster",
-    category: "Graphics",
-    price: "$120.00",
+    id: "biz-1",
+    name: "AI Business Starter Kit",
+    category: "Business Kit",
+    price: "$297.00",
+    icon: <Layers className="w-8 h-8" />,
+    description: "Complete blueprint for launching an AI-first digital business in 2026. 100% digital software solution.",
+    details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
+    problem: "Solves the 'zero to one' hurdle for new AI entrepreneurs.",
+    target: "For Solo-preneurs and digital builders.",
+    income: "Enables instant resale of digital assets with included PLR rights.",
+    includes: "Brand Assets, Landing Page Templates, Legal Bundle,成员Access.",
+    stats: { setup: "Fast", license: "Commercial" }
+  },
+  {
+    id: "prompt-1",
+    name: "Prompt Engineering Master Bundle",
+    category: "Prompting",
+    price: "$97.00",
+    icon: <Terminal className="w-8 h-8" />,
+    description: "The ultimate collection of 5,000+ high-converting prompts for LLMs. Optimized for 2026 models.",
+    details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
+    problem: "Solves poor AI output quality and inconsistent results.",
+    target: "For Content creators and AI developers.",
+    income: "Drastically reduces content production costs and time.",
+    includes: "CSV Prompt Database, GPT Persona Templates, Fine-tuning Guide.",
+    stats: { count: "5000+", quality: "Verified" }
+  },
+  {
+    id: "saas-1",
+    name: "Micro SaaS Starter Template",
+    category: "SaaS Template",
+    price: "$497.00",
+    icon: <Globe className="w-8 h-8" />,
+    description: "A production-ready Next.js & AI framework for launching subscription-based micro-apps instantly.",
+    details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
+    problem: "Solves the long development cycles for AI applications.",
+    target: "For Developers and SaaS founders.",
+    income: "Allows for recurring subscription revenue through Stripe integration.",
+    includes: "Source Code, Database Schema, AI API Wrappers, PDF Guide.",
+    stats: { tech: "Next.js", auth: "Included" }
+  },
+  {
+    id: "mkt-1",
+    name: "AI Marketing Automation Kit",
+    category: "Marketing",
+    price: "$147.00",
     icon: <Activity className="w-8 h-8" />,
-    description: "Distributed GPU network specialized for AI model training and rendering.",
-    stats: { cores: "1.2M", memory: "48TB" }
+    description: "Autonomous marketing engine that handles ad copy, social posts, and email sequences automatically.",
+    details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
+    problem: "Solves high agency costs and manual content posting fatigue.",
+    target: "For eCommerce brands and small businesses.",
+    income: "Generates leads 24/7 without human intervention.",
+    includes: "Ad Copy Generator, Email Templates, Social Media Schedulers.",
+    stats: { channels: "Multi", roi: "Scale" }
   },
   {
-    id: "qpu",
-    name: "Quantum QPU-7",
-    category: "Quantum",
-    price: "$2,500.00",
+    id: "income-1",
+    name: "AI Passive Income System",
+    category: "Income System",
+    price: "$397.00",
     icon: <Zap className="w-8 h-8" />,
-    description: "Quantum Processing Unit capable of solving NP-hard problems in seconds.",
-    stats: { qubits: "512", coherence: "98ms" }
+    description: "Autonomous system for generating and selling niche digital products on autopilot.",
+    details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
+    problem: "Solves the challenge of building passive revenue streams.",
+    target: "For Digital nomads and passive income seekers.",
+    income: "Creates automated sales funnels for digital assets.",
+    includes: "Product Gen Scripts, Sales Page Code, Traffic Guide PDF.",
+    stats: { mode: "Hands-free", type: "Digital" }
   },
   {
-    id: "ram",
-    name: "LQD Neural RAM",
-    category: "Memory",
-    price: "$15.00",
-    icon: <Database className="w-8 h-8" />,
-    description: "Liquid-state memory with zero latency for real-time neural networks.",
-    stats: { latency: "0ns", capacity: "1PB" }
-  },
-  {
-    id: "chips",
-    name: "AI Neural Chips",
-    category: "Chips",
-    price: "$80.00",
-    icon: <Microchip className="w-8 h-8" />,
-    description: "Biomimetic neural chips for seamless AI-human interface integration.",
-    stats: { synapses: "100B", bio: "94%" }
-  },
-  {
-    id: "chips-adv",
-    name: "Quantum Neural Core",
-    category: "Chips",
-    price: "$250.00",
-    icon: <Zap className="w-8 h-8" />,
-    description: "Advanced quantum-powered neural core for instant AI processing.",
-    stats: { qubits: "128", efficiency: "99.99%" }
-  },
-  {
-    id: "chips-bio",
-    name: "Bio-Link Chipset",
-    category: "Chips",
-    price: "$450.00",
-    icon: <Activity className="w-8 h-8" />,
-    description: "Full biological integration chipset for direct neural linking.",
-    stats: { sync: "99.9%", latency: "0.01ms" }
-  },
-  {
-    id: "brains",
-    name: "Multi-Brain Node",
-    category: "Intelligence",
-    price: "$5,000.00",
+    id: "agent-1",
+    name: "AI Agent Deployment Framework",
+    category: "AI Agents",
+    price: "$597.00",
     icon: <Brain className="w-8 h-8" />,
-    description: "A collective intelligence node operating on complex neural networks.",
-    stats: { nodes: "128", iq: "12000" }
+    description: "Deploy a swarm of AI agents to manage customer support, research, and data analysis.",
+    details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
+    problem: "Solves high labor costs for repetitive digital tasks.",
+    target: "For Tech startups and remote teams.",
+    income: "Reduces overhead by replacing manual staff with AI agents.",
+    includes: "Agent Core Code, Task Handlers, Monitoring Dashboard.",
+    stats: { capacity: "Scalable", engine: "Neural" }
+  },
+  {
+    id: "resell-1",
+    name: "AI Resell Rights Bundle",
+    category: "Resell Rights",
+    price: "$997.00",
+    icon: <BarChart3 className="w-8 h-8" />,
+    description: "Massive library of high-demand AI tools with full commercial resell rights (PLR).",
+    details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
+    problem: "Solves the lack of ownable products to sell in a store.",
+    target: "For Marketplace owners and digital resellers.",
+    income: "100% profit margins on every sale of these assets.",
+    includes: "50+ Software Tools, Sales Kits, Training Videos.",
+    stats: { rights: "Full PLR", profit: "100%" }
   }
 ];
 
@@ -164,7 +204,7 @@ export default function Index() {
                 <span className="text-ash-500">ROAD</span>
               </h1>
               <p className="text-xl md:text-2xl text-ash-400 max-w-2xl mb-12 font-medium leading-relaxed border-l-2 border-white/10 pl-8">
-                Cyber Road is a marketplace for AI-powered digital tools that help creators and entrepreneurs automate income.
+                Cyber Road is a premium marketplace for advanced 2026 digital AI software, automation systems, and creator toolkits. 100% digital assets for instant deployment.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
@@ -267,20 +307,21 @@ export default function Index() {
       {/* Advanced Tools Section */}
       <section className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-black uppercase tracking-tighter mb-4">Neural Infrastructure Tools</h2>
+          <h2 className="text-3xl font-black uppercase tracking-tighter mb-4">Neural Software Categories</h2>
           <div className="h-px w-20 bg-white mx-auto opacity-20" />
+          <p className="text-[10px] text-ash-500 uppercase tracking-widest mt-4">All products are digital AI software tools delivered electronically. No physical hardware is sold.</p>
         </div>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
           {[
-            { name: "Money", icon: <Plus /> },
-            { name: "CPU", icon: <Cpu /> },
-            { name: "GPU", icon: <Activity /> },
-            { name: "QPU", icon: <Zap /> },
-            { name: "RAM", icon: <Database /> },
-            { name: "Neural Quantum Chip", icon: <Shield /> },
-            { name: "AI Neural Chips", icon: <Microchip /> },
-            { name: "Multi Brains", icon: <Brain /> },
+            { name: "Automation Systems", icon: <Radio /> },
+            { name: "Business Kits", icon: <Layers /> },
+            { name: "Prompt Bundles", icon: <Terminal /> },
+            { name: "SaaS Templates", icon: <Globe /> },
+            { name: "Content Engines", icon: <Radio /> },
+            { name: "Workflow Systems", icon: <Activity /> },
+            { name: "Income Systems", icon: <Zap /> },
+            { name: "Agent Swarms", icon: <Brain /> },
           ].map((tool, i) => (
             <motion.button
               key={tool.name}
@@ -303,8 +344,9 @@ export default function Index() {
       <section id="marketplace" className="container mx-auto px-4 py-20">
         <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16 border-b border-white/10 pb-12">
           <div className="max-w-xl">
-            <h2 className="text-5xl font-black uppercase tracking-tighter mb-4 leading-none">Live Marketplace</h2>
+            <h2 className="text-5xl font-black uppercase tracking-tighter mb-4 leading-none">AI Software Store</h2>
             <p className="text-ash-400 uppercase text-[10px] tracking-[0.4em] font-bold">Synchronizing with AI Neural Clusters... {productCount.toLocaleString()} Assets available</p>
+            <p className="text-[9px] text-ash-600 uppercase tracking-widest mt-2 italic font-mono">Disclaimer: All products are digital AI software tools delivered electronically. No physical hardware is sold.</p>
           </div>
           <div className="flex items-center gap-4">
             <Button 
@@ -346,17 +388,51 @@ export default function Index() {
                 </div>
                 
                 <h3 className="text-3xl font-bold uppercase tracking-tighter mb-3 group-hover:translate-x-1 transition-transform duration-500">{product.name}</h3>
-                <p className="text-ash-400 text-sm mb-10 leading-relaxed font-light">
+                <p className="text-ash-400 text-sm mb-4 leading-relaxed font-light">
                   {product.description}
                 </p>
+                <p className="text-[10px] text-ash-600 mb-6 font-mono leading-relaxed bg-white/5 p-4 border border-white/5">
+                  {product.details}
+                </p>
 
-                <div className="grid grid-cols-2 gap-8 mb-10 pt-8 border-t border-white/10">
-                  {Object.entries(product.stats).map(([key, val]) => (
-                    <div key={key} className="space-y-1">
-                      <span className="block text-[9px] uppercase text-ash-600 font-bold tracking-widest">{key}</span>
-                      <span className="block text-base font-mono font-bold text-white/90">{val}</span>
+                <div className="space-y-6 mb-10 pt-8 border-t border-white/10">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <span className="block text-[8px] uppercase text-ash-600 font-bold tracking-widest">Problem Solved</span>
+                      <span className="block text-[10px] font-medium text-white/80">{product.problem}</span>
                     </div>
-                  ))}
+                    <div className="space-y-1">
+                      <span className="block text-[8px] uppercase text-ash-600 font-bold tracking-widest">Target Audience</span>
+                      <span className="block text-[10px] font-medium text-white/80">{product.target}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <span className="block text-[8px] uppercase text-ash-600 font-bold tracking-widest">Income/Time Logic</span>
+                    <span className="block text-[10px] font-medium text-white/80">{product.income}</span>
+                  </div>
+
+                  <div className="space-y-1">
+                    <span className="block text-[8px] uppercase text-ash-600 font-bold tracking-widest">Included Files (100% Digital)</span>
+                    <span className="block text-[10px] font-medium text-white/80">{product.includes}</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-8 pt-4 border-t border-white/5">
+                    {Object.entries(product.stats).map(([key, val]) => (
+                      <div key={key} className="space-y-1">
+                        <span className="block text-[9px] uppercase text-ash-600 font-bold tracking-widest">{key}</span>
+                        <span className="block text-base font-mono font-bold text-white/90">{val}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                     <Badge variant="outline" className="text-[7px] uppercase tracking-tighter rounded-none border-white/10 py-0 h-4">ZIP File Delivery</Badge>
+                     <Badge variant="outline" className="text-[7px] uppercase tracking-tighter rounded-none border-white/10 py-0 h-4">Commercial License</Badge>
+                     <Badge variant="outline" className="text-[7px] uppercase tracking-tighter rounded-none border-white/10 py-0 h-4">PDF Setup Guide</Badge>
+                     <Badge variant="outline" className="text-[7px] uppercase tracking-tighter rounded-none border-white/10 py-0 h-4">Prompt Bundle</Badge>
+                     <Badge variant="outline" className="text-[7px] uppercase tracking-tighter rounded-none border-white/10 py-0 h-4">Automation Templates</Badge>
+                  </div>
                 </div>
 
                 <div className="flex items-center justify-between gap-6 pt-4">
@@ -397,17 +473,17 @@ export default function Index() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
           <div className="space-y-12">
             <div>
-              <h2 className="text-5xl font-black uppercase tracking-tighter mb-6">Multi-Layer Architecture</h2>
+              <h2 className="text-5xl font-black uppercase tracking-tighter mb-6">Software Architecture</h2>
               <p className="text-ash-400 text-lg leading-relaxed">
-                Cyber Road operates on multiple neural layers, allowing for parallel processing of asset generation and marketplace verification.
+                Cyber Road tools are built on a multi-layer neural architecture, ensuring high-speed processing and seamless automation for digital creators.
               </p>
             </div>
 
             <div className="space-y-8">
               {[
-                { title: "Layer 0: Quantum Foundation", desc: "Core substrate for all neural computations." },
-                { title: "Layer 1: AI Agent Swarm", desc: "Autonomous entities creating and managing products." },
-                { title: "Layer 2: Marketplace Sync", desc: "Real-time verification and global deployment." },
+                { title: "Layer 0: Neural Core Scripts", desc: "Foundational logic and API integration protocols." },
+                { title: "Layer 1: AI Agent Swarm", desc: "Autonomous software entities executing tasks in parallel." },
+                { title: "Layer 2: Instant Sync", desc: "Real-time delivery and license verification systems." },
               ].map((layer, i) => (
                 <div key={i} className="flex gap-8 group">
                   <div className="text-3xl font-black text-ash-800 group-hover:text-white transition-colors">0{i}</div>
@@ -452,9 +528,9 @@ export default function Index() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
            {[
-             { name: "Alex K.", role: "Digital Creator", text: "The neural chips have completely transformed how I handle my automated render farms. Highly recommended." },
-             { name: "Sarah M.", role: "Entrepreneur", text: "Instant download and 24/7 support make Cyber Road my go-to for all AI digital tools." },
-             { name: "Marcus T.", role: "System Architect", text: "The multi-brain nodes are unparalleled in performance. The future of digital products is here." }
+             { name: "Alex K.", role: "Agency Owner", text: "The Neural Workflow Automator has cut my operational time by 70%. It's like having a full-time dev team in a ZIP file." },
+             { name: "Sarah M.", role: "AI Entrepreneur", text: "Cyber Road's SaaS templates are production-ready. I launched my first micro-SaaS in 3 days. Instant delivery is a game changer." },
+             { name: "Marcus T.", role: "Digital Builder", text: "The prompt engineering master bundle is the best investment I've made. My AI outputs went from average to exceptional instantly." }
            ].map((t, i) => (
              <div key={i} className="border border-white/10 bg-white/[0.02] p-10 relative">
                 <Quote className="absolute top-8 right-8 text-white/5 w-12 h-12" />
