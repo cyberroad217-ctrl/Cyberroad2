@@ -7,58 +7,58 @@ import Layout from "@/components/Layout";
 
 const chipProducts = [
   {
-    id: "nc-1",
-    name: "AI Neural Chip v1",
-    category: "Neural",
-    price: "$80.00",
-    icon: <Shield className="w-12 h-12" />,
-    description: "Standard biomimetic neural chip for basic AI-human interface integration.",
-    stats: { synapses: "100B", bio: "94%", power: "2.5W" }
-  },
-  {
-    id: "nc-2",
-    name: "Quantum Neural Core",
-    category: "Quantum",
-    price: "$250.00",
-    icon: <Zap className="w-12 h-12" />,
-    description: "High-performance chip with integrated quantum processing for instant decision making.",
-    stats: { synapses: "1.2T", bio: "98%", power: "0.8W" }
-  },
-  {
-    id: "nc-3",
-    name: "Bio-Synthetic Nexus",
-    category: "Biological",
-    price: "$420.00",
-    icon: <Activity className="w-12 h-12" />,
-    description: "Advanced synthetic neural pathway chip that replicates human brain patterns.",
-    stats: { synapses: "10T", bio: "99.9%", power: "0.1W" }
-  },
-  {
-    id: "nc-4",
-    name: "Edge Neural Link",
-    category: "Interface",
-    price: "$150.00",
-    icon: <Radio className="w-12 h-12" />,
-    description: "Long-range wireless neural connection chip for remote drone and swarm control.",
-    stats: { synapses: "500B", range: "10km", latency: "0.1ms" }
-  },
-  {
-    id: "nc-5",
-    name: "Crypto-Neural Vault",
-    category: "Security",
-    price: "$330.00",
-    icon: <Binary className="w-12 h-12" />,
-    description: "Secure neural storage chip with hardware-level encryption for mental data.",
-    stats: { security: "AES-1024", capacity: "100PB", bio: "92%" }
-  },
-  {
-    id: "nc-6",
-    name: "Hyper-Task Processor",
-    category: "Compute",
-    price: "$190.00",
+    id: "auto-1",
+    name: "AutoFlow AI Pro",
+    category: "Automation",
+    price: "$97.00",
     icon: <Cpu className="w-12 h-12" />,
-    description: "Multitasking specialist chip designed for parallel neural network executions.",
-    stats: { threads: "4096", synapses: "800B", clock: "15.2GHz" }
+    description: "Complete AI workflow automation suite. Automate lead gen, emails, and CRM with zero code. Problem: Time-consuming manual tasks. Solution: Autopilot workflows for 24/7 business ops.",
+    stats: { delivery: "Instant ZIP", files: "Templates + PDF", license: "Commercial", access: "Lifetime" }
+  },
+  {
+    id: "biz-1",
+    name: "AI Business Starter Kit",
+    category: "Starter Kit",
+    price: "$147.00",
+    icon: <Shield className="w-12 h-12" />,
+    description: "Everything you need to launch an AI-driven agency or SaaS. Problem: Starting from scratch is hard. Solution: Pre-built templates, scripts, and legal docs.",
+    stats: { delivery: "Instant ZIP", files: "Scripts + Assets", license: "Commercial", guides: "Included" }
+  },
+  {
+    id: "prompt-1",
+    name: "Master Prompt Bundle",
+    category: "Engineering",
+    price: "$47.00",
+    icon: <Binary className="w-12 h-12" />,
+    description: "10,000+ high-converting prompts for GPT-4, Midjourney, and Claude. Problem: Low quality AI output. Solution: Expert-engineered prompts for professional results.",
+    stats: { delivery: "Instant ZIP", files: "PDF + TXT", license: "Commercial", updates: "Free" }
+  },
+  {
+    id: "content-1",
+    name: "ContentGen Matrix",
+    category: "Marketing",
+    price: "$127.00",
+    icon: <Activity className="w-12 h-12" />,
+    description: "Scale your content production 100x. Automate video scripts, blog posts, and social ads. Problem: Content burnout. Solution: AI-powered high-volume content factory.",
+    stats: { delivery: "Instant ZIP", files: "Workflow + Prompts", license: "Commercial", setup: "10 mins" }
+  },
+  {
+    id: "saas-1",
+    name: "SaaS Blueprint X",
+    category: "Micro SaaS",
+    price: "$197.00",
+    icon: <Zap className="w-12 h-12" />,
+    description: "Launch your own AI SaaS in days. Includes core codebase and integration guides. Problem: High dev costs. Solution: Ready-to-deploy AI software architecture.",
+    stats: { delivery: "Instant ZIP", files: "Code + Docs", license: "Commercial", tech: "NextJS/Node" }
+  },
+  {
+    id: "nocode-1",
+    name: "No-Code AI Engine",
+    category: "No-Code",
+    price: "$89.00",
+    icon: <Radio className="w-12 h-12" />,
+    description: "Visual builder for AI agents and logic flows. No programming required. Problem: Technical barriers. Solution: Drag-and-drop AI deployment system.",
+    stats: { delivery: "Instant ZIP", files: "App Files + Guide", license: "Commercial", support: "Priority" }
   }
 ];
 
@@ -76,17 +76,20 @@ export default function NeuralChips() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-20">
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-4 rounded-none border-white/20 text-white font-mono tracking-[0.4em] uppercase text-[10px]">
-              Advanced Components
+              AI Automation & Workflows
             </Badge>
-            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6">Neural Chips</h1>
+            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6">Automation</h1>
             <p className="text-ash-400 text-xl leading-relaxed font-light">
-              <strong className="text-white block mb-4 uppercase tracking-wider text-sm">AI-Powered Digital Products You Can Use or Resell Instantly</strong>
-              Explore our collection of high-performance neural chips, designed for seamless integration with AI systems and human interfaces. Every chip is verified by the Cyber Road Neural Network.
+              <strong className="text-white block mb-4 uppercase tracking-wider text-sm">Instant Digital AI Solutions for Creators & Entrepreneurs</strong>
+              Explore our collection of high-demand AI automation systems and no-code workflow engines. Every product is a 100% digital asset designed for instant deployment and rapid scaling.
             </p>
+            <div className="mt-8 p-4 border border-white/10 bg-white/5 font-mono text-[10px] uppercase tracking-widest text-white/60">
+              Disclaimer: All products are digital AI software tools delivered electronically. No physical hardware is sold.
+            </div>
           </div>
           <div className="flex-shrink-0">
              <div className="w-32 h-32 border border-white/10 flex items-center justify-center animate-pulse">
-                <Microchip size={64} className="text-white/20" />
+                <Zap size={64} className="text-white/20" />
              </div>
           </div>
         </div>
@@ -102,7 +105,7 @@ export default function NeuralChips() {
             >
               <div className="p-10">
                 <div className="flex justify-between items-start mb-10">
-                  <div 
+                  <div
                     onClick={() => handlePurchase(chip.name)}
                     className="p-6 border border-white/10 bg-black group-hover:border-white transition-all duration-500 cursor-pointer"
                   >
@@ -116,6 +119,9 @@ export default function NeuralChips() {
                 <h3 className="text-3xl font-bold uppercase tracking-tighter mb-4">{chip.name}</h3>
                 <p className="text-ash-400 text-sm mb-10 leading-relaxed min-h-[60px]">
                   {chip.description}
+                  <span className="block mt-4 text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                    Includes: ZIP File + PDF Guide + Prompt Bundle + License
+                  </span>
                 </p>
 
                 <div className="space-y-4 mb-10 pt-8 border-t border-white/10">
@@ -133,7 +139,7 @@ export default function NeuralChips() {
                     onClick={() => handlePurchase(chip.name)}
                     className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
                   >
-                    Buy
+                    Get Access
                   </Button>
                 </div>
               </div>

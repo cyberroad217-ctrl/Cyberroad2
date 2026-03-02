@@ -7,31 +7,58 @@ import Layout from "@/components/Layout";
 
 const quantumUnits = [
   {
-    id: "qu-1",
-    name: "QPU-7 Neural Core",
-    category: "Quantum",
-    price: "$2,500.00",
+    id: "funnel-1",
+    name: "Quantum Funnel Builder",
+    category: "Funnels",
+    price: "$197.00",
     icon: <Zap className="w-12 h-12" />,
-    description: "Standard quantum processing unit for high-speed neural computations.",
-    stats: { qubits: "512", coherence: "98ms", error_rate: "0.001%" }
+    description: "AI-driven high-conversion funnel system. Problem: Low conversion rates. Solution: Real-time AI page optimization and dynamic lead capture.",
+    stats: { delivery: "Instant ZIP", conversion: "+45%", license: "Commercial", files: "Templates + PDF" }
   },
   {
-    id: "qu-2",
-    name: "Entanglement Driver",
-    category: "Hardware",
-    price: "$1,200.00",
+    id: "social-1",
+    name: "Neural Social Automator",
+    category: "Social",
+    price: "$89.00",
     icon: <Gauge className="w-12 h-12" />,
-    description: "Stabilization hardware for maintaining quantum coherence in neural chips.",
-    stats: { stability: "99.9%", range: "Global", power: "500W" }
+    description: "Automate your entire social media presence with AI. Problem: Too much time on socials. Solution: 24/7 automated posting, engagement, and DM management.",
+    stats: { delivery: "Instant ZIP", platforms: "All Major", license: "Commercial", setup: "10 mins" }
   },
   {
-    id: "qu-3",
-    name: "Sub-Zero Coolant",
-    category: "System",
-    price: "$800.00",
+    id: "ecom-1",
+    name: "Entangled eCommerce Kit",
+    category: "eCommerce",
+    price: "$247.00",
     icon: <Battery className="w-12 h-12" />,
-    description: "Liquid-nitrogen based cooling system for quantum processors.",
-    stats: { temp: "-273°C", flow: "5L/min", pressure: "12bar" }
+    description: "Complete AI eCommerce automation system. Problem: Scaling a store is hard. Solution: Automated product sourcing, descriptions, and customer support.",
+    stats: { delivery: "Instant ZIP", platform: "Shopify/WC", license: "Commercial", files: "Apps + Guide" }
+  },
+  {
+    id: "income-1",
+    name: "Passive Income Engine",
+    category: "Monetization",
+    price: "$159.00",
+    icon: <Cpu className="w-12 h-12" />,
+    description: "AI systems designed for low-maintenance digital income. Problem: Trading time for money. Solution: Automated digital asset creation and sales systems.",
+    stats: { delivery: "Instant ZIP", model: "Auto-Sales", license: "Commercial", access: "Lifetime" }
+  },
+  {
+    id: "web-1",
+    name: "AI Web Monetizer",
+    category: "Web",
+    price: "$127.00",
+    icon: <Shield className="w-12 h-12" />,
+    description: "Optimize your website's revenue with AI-driven ad and offer placement. Problem: Low RPM. Solution: Neural-network based traffic monetization strategies.",
+    stats: { delivery: "Instant ZIP", revenue: "Optimized", license: "Commercial", files: "Scripts + PDF" }
+  },
+  {
+    id: "msaas-1",
+    name: "Micro SaaS Template",
+    category: "SaaS",
+    price: "$197.00",
+    icon: <Radio className="w-12 h-12" />,
+    description: "The ultimate starter code for a subscription-based AI micro SaaS. Problem: Coding takes too long. Solution: Ready-to-use codebase with Stripe integration.",
+    stats: { delivery: "Instant ZIP", tech: "React/Supabase", license: "Commercial", setup: "Instant" }
   }
 ];
 
@@ -49,12 +76,16 @@ export default function QuantumUnits() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-20">
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-4 rounded-none border-white/20 text-white font-mono tracking-[0.4em] uppercase text-[10px]">
-              Quantum Mechanics
+              AI Processing & Tools
             </Badge>
-            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6">Quantum Units</h1>
+            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6">Quantum</h1>
             <p className="text-ash-400 text-xl leading-relaxed font-light">
-              High-coherence quantum processors and stabilization units designed for the next generation of AI neural networks.
+              <strong className="text-white block mb-4 uppercase tracking-wider text-sm">Next-Generation AI Sales & Content Systems</strong>
+              High-performance AI tools and automation units designed for the next generation of digital creators and entrepreneurs.
             </p>
+            <div className="mt-8 p-4 border border-white/10 bg-white/5 font-mono text-[10px] uppercase tracking-widest text-white/60">
+              Disclaimer: All products are digital AI software tools delivered electronically. No physical hardware is sold.
+            </div>
           </div>
           <div className="flex-shrink-0">
              <div className="w-32 h-32 border border-white/10 flex items-center justify-center animate-pulse">
@@ -74,7 +105,7 @@ export default function QuantumUnits() {
             >
               <div className="p-10">
                 <div className="flex justify-between items-start mb-10">
-                  <div 
+                  <div
                     onClick={() => handlePurchase(unit.name)}
                     className="p-6 border border-white/10 bg-black group-hover:border-white transition-all duration-500 cursor-pointer hover:bg-white hover:text-black"
                   >
@@ -88,6 +119,9 @@ export default function QuantumUnits() {
                 <h3 className="text-3xl font-bold uppercase tracking-tighter mb-4">{unit.name}</h3>
                 <p className="text-ash-400 text-sm mb-10 leading-relaxed min-h-[60px]">
                   {unit.description}
+                  <span className="block mt-4 text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                    Includes: ZIP File + PDF Guide + Automation Templates + License
+                  </span>
                 </p>
 
                 <div className="space-y-4 mb-10 pt-8 border-t border-white/10">
@@ -105,7 +139,7 @@ export default function QuantumUnits() {
                     onClick={() => handlePurchase(unit.name)}
                     className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
                   >
-                    Buy
+                    Get Access
                   </Button>
                 </div>
               </div>

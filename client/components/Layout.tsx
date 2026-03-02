@@ -8,9 +8,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const navLinks = [
     { name: "Marketplace", path: "/marketplace", icon: <ShoppingCart className="w-4 h-4" /> },
-    { name: "Neural Chips", path: "/chips", icon: <Cpu className="w-4 h-4" /> },
-    { name: "Multi Brains", path: "/brains", icon: <Brain className="w-4 h-4" /> },
-    { name: "Quantum", path: "/quantum", icon: <Zap className="w-4 h-4" /> },
+    { name: "Automation", path: "/chips", icon: <Cpu className="w-4 h-4" /> },
+    { name: "AI Agents", path: "/brains", icon: <Brain className="w-4 h-4" /> },
+    { name: "Processing", path: "/quantum", icon: <Zap className="w-4 h-4" /> },
     { name: "Infrastructure", path: "/infra", icon: <Database className="w-4 h-4" /> },
     { name: "Blog", path: "/blog", icon: <FileText className="w-4 h-4" /> },
   ];
@@ -47,7 +47,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               variant="outline"
               className="rounded-none border-white/20 hover:bg-white hover:text-black transition-all duration-300"
             >
-              Connect Wallet
+              Get Access
             </Button>
           </div>
 
@@ -106,8 +106,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <span className="text-lg font-bold tracking-tighter uppercase">Cyber Road</span>
               </Link>
               <p className="text-ash-400 max-w-sm mb-6 leading-relaxed">
-                The world's first AI-driven marketplace for neural quantum assets. 
-                Powered by autonomous AI agents creating and deploying digital products nonstop.
+                The world's first AI-driven marketplace for high-demand digital software and automation assets.
+                Delivering 100% digital solutions for creators, entrepreneurs, and digital builders.
               </p>
               <div className="flex gap-4">
                 <div
@@ -143,9 +143,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-bold uppercase mb-6 text-sm tracking-widest text-white">Marketplace</h4>
               <ul className="flex flex-col gap-4 text-sm text-ash-400">
-                <Link to="/chips" className="hover:text-white transition-colors cursor-pointer">Neural Chips</Link>
-                <Link to="/quantum" className="hover:text-white transition-colors cursor-pointer">Quantum Processors</Link>
-                <Link to="/brains" className="hover:text-white transition-colors cursor-pointer">AI Multi-Brains</Link>
+                <Link to="/chips" className="hover:text-white transition-colors cursor-pointer">Automation</Link>
+                <Link to="/brains" className="hover:text-white transition-colors cursor-pointer">AI Agents</Link>
+                <Link to="/quantum" className="hover:text-white transition-colors cursor-pointer">Processing Tools</Link>
                 <Link to="/infra" className="hover:text-white transition-colors cursor-pointer">Infrastructure</Link>
               </ul>
             </div>
@@ -162,8 +162,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
           
           <div className="pt-8 border-t border-white/5 flex flex-col md:row items-center justify-between gap-4">
+            <p className="text-[10px] text-ash-600 uppercase tracking-widest max-w-4xl text-center md:text-left mb-4">
+              Disclaimer: All products are digital AI software tools delivered electronically as ZIP files. No physical hardware is sold. Every purchase includes Instant Digital Download, ZIP File Delivery, Commercial License, and Setup Guides.
+            </p>
             <p className="text-xs text-ash-500 uppercase tracking-tighter">
-              &copy; 2024 CYBER ROAD NEURAL SYSTEMS. ALL RIGHTS RESERVED.
+              &copy; 2026 CYBER ROAD NEURAL SYSTEMS. ALL RIGHTS RESERVED.
             </p>
             <div className="flex gap-8 flex-wrap justify-center md:justify-end">
               <Link to="/privacy" className="text-xs text-ash-500 uppercase tracking-tighter hover:text-white cursor-pointer">Privacy Policy</Link>

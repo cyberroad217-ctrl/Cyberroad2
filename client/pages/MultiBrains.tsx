@@ -7,31 +7,58 @@ import Layout from "@/components/Layout";
 
 const brainNodes = [
   {
-    id: "mb-1",
-    name: "Neural Node Alpha",
-    category: "Intelligence",
-    price: "$1,500.00",
+    id: "agent-1",
+    name: "Autonomous Agent Core",
+    category: "Agents",
+    price: "$297.00",
     icon: <Brain className="w-12 h-12" />,
-    description: "Primary intelligence node for managing local AI agent swarms.",
-    stats: { iq: "4500", nodes: "16", sync: "99.9%" }
+    description: "Deployment framework for self-operating AI agents. Problem: Complex setup. Solution: One-click agent deployment for research, sales, or support.",
+    stats: { delivery: "Instant ZIP", agents: "Unlimited", license: "Commercial", setup: "5 mins" }
   },
   {
-    id: "mb-2",
-    name: "Collective Cortex",
-    category: "Global",
-    price: "$4,200.00",
+    id: "chat-1",
+    name: "Chatbot Mastery Kit",
+    category: "Chatbots",
+    price: "$149.00",
     icon: <Network className="w-12 h-12" />,
-    description: "Distributed brain network capable of global-scale pattern recognition.",
-    stats: { iq: "18000", nodes: "128", sync: "100%" }
+    description: "Complete kit for building and selling custom AI chatbots. Problem: High development costs. Solution: White-label chatbot templates for business clients.",
+    stats: { delivery: "Instant ZIP", platforms: "Web/SMS/FB", license: "Commercial", files: "JSON/JS" }
   },
   {
-    id: "mb-3",
-    name: "Quantum Synapse",
-    category: "Advanced",
-    price: "$8,500.00",
+    id: "data-1",
+    name: "Neural Data Toolkit",
+    category: "Analysis",
+    price: "$189.00",
     icon: <Zap className="w-12 h-12" />,
-    description: "Hybrid quantum-neural brain for solving multi-dimensional logic gates.",
-    stats: { iq: "52000", nodes: "512", sync: "98.5%" }
+    description: "AI-powered data analysis and visualization system. Problem: Data overwhelm. Solution: Intelligent insights and reporting automation.",
+    stats: { delivery: "Instant ZIP", input: "CSV/Excel/SQL", license: "Commercial", reports: "Automated" }
+  },
+  {
+    id: "trade-1",
+    name: "Trading Bot Framework",
+    category: "Education",
+    price: "$497.00",
+    icon: <Activity className="w-12 h-12" />,
+    description: "Educational software for building AI-driven trading strategies. Problem: Emotional trading. Solution: Logical, data-driven strategy development (Educational Use Only).",
+    stats: { delivery: "Instant ZIP", market: "Crypto/Stocks", license: "Commercial", files: "Python/JS" }
+  },
+  {
+    id: "job-1",
+    name: "Career Automator v2",
+    category: "Career",
+    price: "$79.00",
+    icon: <Shield className="w-12 h-12" />,
+    description: "AI system for resume optimization and job application automation. Problem: Time-consuming job search. Solution: Automated applications and AI-tailored resumes.",
+    stats: { delivery: "Instant ZIP", sites: "LinkedIn/Indeed", license: "Personal", files: "DOCX/PDF" }
+  },
+  {
+    id: "dash-1",
+    name: "Intelligence Dashboard",
+    category: "Productivity",
+    price: "$127.00",
+    icon: <Blocks className="w-12 h-12" />,
+    description: "Unified AI dashboard for managing all your digital workflows and tools. Problem: App fatigue. Solution: Single central intelligence hub for all AI tools.",
+    stats: { delivery: "Instant ZIP", integrations: "30+", license: "Commercial", UI: "Customizable" }
   }
 ];
 
@@ -49,12 +76,16 @@ export default function MultiBrains() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-20">
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-4 rounded-none border-white/20 text-white font-mono tracking-[0.4em] uppercase text-[10px]">
-              Neural Intelligence
+              AI Agent Systems
             </Badge>
             <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6">Multi Brains</h1>
             <p className="text-ash-400 text-xl leading-relaxed font-light">
-              Connect to our most advanced collective intelligence nodes. These multi-brain systems operate on deep neural networks to provide unparalleled computational power.
+              <strong className="text-white block mb-4 uppercase tracking-wider text-sm">Deploy Autonomous Intelligence in Seconds</strong>
+              Connect to our most advanced AI agent frameworks and intelligence kits. These systems are designed for high-performance automation and data-driven decision making.
             </p>
+            <div className="mt-8 p-4 border border-white/10 bg-white/5 font-mono text-[10px] uppercase tracking-widest text-white/60">
+              Disclaimer: All products are digital AI software tools delivered electronically. No physical hardware is sold.
+            </div>
           </div>
           <div className="flex-shrink-0">
              <div className="w-32 h-32 border border-white/10 flex items-center justify-center animate-pulse">
@@ -74,7 +105,7 @@ export default function MultiBrains() {
             >
               <div className="p-10">
                 <div className="flex justify-between items-start mb-10">
-                  <div 
+                  <div
                     onClick={() => handlePurchase(node.name)}
                     className="p-6 border border-white/10 bg-black group-hover:border-white transition-all duration-500 cursor-pointer hover:bg-white hover:text-black"
                   >
@@ -88,6 +119,9 @@ export default function MultiBrains() {
                 <h3 className="text-3xl font-bold uppercase tracking-tighter mb-4">{node.name}</h3>
                 <p className="text-ash-400 text-sm mb-10 leading-relaxed min-h-[60px]">
                   {node.description}
+                  <span className="block mt-4 text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                    Includes: ZIP File + PDF Guide + Automation Templates + License
+                  </span>
                 </p>
 
                 <div className="space-y-4 mb-10 pt-8 border-t border-white/10">
@@ -105,7 +139,7 @@ export default function MultiBrains() {
                     onClick={() => handlePurchase(node.name)}
                     className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
                   >
-                    Buy
+                    Get Access
                   </Button>
                 </div>
               </div>

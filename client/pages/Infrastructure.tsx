@@ -7,31 +7,58 @@ import Layout from "@/components/Layout";
 
 const infraItems = [
   {
-    id: "infra-1",
-    name: "Neural Datacenter",
-    category: "Infrastructure",
-    price: "$12,000.00",
+    id: "resell-1",
+    name: "AI Resell Rights Bundle",
+    category: "Resell",
+    price: "$497.00",
     icon: <Server className="w-12 h-12" />,
-    description: "Full-scale neural processing datacenter for massive AI operations.",
-    stats: { throughput: "128PB/s", storage: "5000EB", power: "2.4GW" }
+    description: "Massive collection of AI software and tools with full Master Resell Rights (MRR). Problem: Lack of inventory. Solution: Instant digital storefront with 50+ high-demand products.",
+    stats: { delivery: "Instant ZIP", products: "50+", license: "MRR/PLR", files: "All Formats" }
   },
   {
     id: "infra-2",
-    name: "Global Edge Network",
-    category: "Connectivity",
-    price: "$4,500.00",
+    name: "AI Integration Framework",
+    category: "Infrastructure",
+    price: "$297.00",
     icon: <Globe className="w-12 h-12" />,
-    description: "Low-latency edge network for distributed AI model deployment.",
-    stats: { nodes: "14,500", latency: "0.2ms", availability: "99.999%" }
+    description: "Robust framework for connecting multiple AI models and data sources. Problem: Fragmented AI tools. Solution: Unified API and logic layer for enterprise-grade AI apps.",
+    stats: { delivery: "Instant ZIP", models: "GPT/Claude/LLaMA", license: "Commercial", tech: "Node/Python" }
   },
   {
-    id: "infra-3",
-    name: "Quantum Storage Array",
-    category: "Storage",
-    price: "$8,000.00",
+    id: "data-2",
+    name: "Data Pipeline Pro",
+    category: "Data",
+    price: "$187.00",
     icon: <Database className="w-12 h-12" />,
-    description: "Quantum-entangled storage for instantaneous data access across any distance.",
-    stats: { capacity: "Infinite*", speed: "Instant", redundancy: "10x" }
+    description: "Automated data cleaning and ingestion pipeline for AI training. Problem: Dirty data. Solution: Intelligent ETL processes designed for the 2026 AI landscape.",
+    stats: { delivery: "Instant ZIP", sources: "Unlimited", license: "Commercial", files: "Scripts + Docs" }
+  },
+  {
+    id: "sec-1",
+    name: "AI Security Vault",
+    category: "Security",
+    price: "$149.00",
+    icon: <Shield className="w-12 h-12" />,
+    description: "Advanced encryption and privacy layer for AI interactions. Problem: Data leaks. Solution: Local-first security protocols for mental and business data protection.",
+    stats: { delivery: "Instant ZIP", encryption: "AES-256+", license: "Commercial", files: "Software + Guide" }
+  },
+  {
+    id: "api-1",
+    name: "API Nexus Engine",
+    category: "Integration",
+    price: "$127.00",
+    icon: <Terminal className="w-12 h-12" />,
+    description: "Universal AI connector for 1000+ web apps and services. Problem: Siloed apps. Solution: Seamless automation between AI agents and external software.",
+    stats: { delivery: "Instant ZIP", apps: "1000+", license: "Commercial", setup: "Drag-and-Drop" }
+  },
+  {
+    id: "deploy-1",
+    name: "Global Deployment Suite",
+    category: "SaaS",
+    price: "$247.00",
+    icon: <Activity className="w-12 h-12" />,
+    description: "Infrastructure-as-code templates for global AI model scaling. Problem: High server costs. Solution: Optimized serverless deployment for AI micro-SaaS.",
+    stats: { delivery: "Instant ZIP", cloud: "AWS/Vercel/Netlify", license: "Commercial", tech: "Terraform/JS" }
   }
 ];
 
@@ -49,12 +76,16 @@ export default function Infrastructure() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-20">
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-4 rounded-none border-white/20 text-white font-mono tracking-[0.4em] uppercase text-[10px]">
-              System Core
+              Digital Foundation
             </Badge>
             <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6">Infrastructure</h1>
             <p className="text-ash-400 text-xl leading-relaxed font-light">
-              The foundational hardware and networks required to power your neural ecosystem. Scalable, secure, and fully autonomous.
+              <strong className="text-white block mb-4 uppercase tracking-wider text-sm">Foundational Software for the AI Economy</strong>
+              The foundational software and frameworks required to power your AI ecosystem. Scalable, secure, and delivered instantly as digital assets.
             </p>
+            <div className="mt-8 p-4 border border-white/10 bg-white/5 font-mono text-[10px] uppercase tracking-widest text-white/60">
+              Disclaimer: All products are digital AI software tools delivered electronically. No physical hardware is sold.
+            </div>
           </div>
           <div className="flex-shrink-0">
              <div className="w-32 h-32 border border-white/10 flex items-center justify-center animate-pulse">
@@ -74,7 +105,7 @@ export default function Infrastructure() {
             >
               <div className="p-10">
                 <div className="flex justify-between items-start mb-10">
-                  <div 
+                  <div
                     onClick={() => handlePurchase(item.name)}
                     className="p-6 border border-white/10 bg-black group-hover:border-white transition-all duration-500 cursor-pointer hover:bg-white hover:text-black"
                   >
@@ -88,6 +119,9 @@ export default function Infrastructure() {
                 <h3 className="text-3xl font-bold uppercase tracking-tighter mb-4">{item.name}</h3>
                 <p className="text-ash-400 text-sm mb-10 leading-relaxed min-h-[60px]">
                   {item.description}
+                  <span className="block mt-4 text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                    Includes: ZIP File + Setup Guide + Automation Templates + License
+                  </span>
                 </p>
 
                 <div className="space-y-4 mb-10 pt-8 border-t border-white/10">
@@ -105,7 +139,7 @@ export default function Infrastructure() {
                     onClick={() => handlePurchase(item.name)}
                     className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
                   >
-                    Buy
+                    Get Access
                   </Button>
                 </div>
               </div>
