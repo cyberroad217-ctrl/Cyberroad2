@@ -10,3 +10,22 @@
 export interface DemoResponse {
   message: string;
 }
+
+export interface Product {
+  id: string;
+  name: string;
+  category: string;
+  price: string;
+  iconName: string;
+  description: string;
+  details: string;
+  problem: string;
+  target: string;
+  income: string;
+  includes: string;
+  stats: Record<string, string>;
+}
+
+export interface AISyncResponse {
+  products: Product[];
+}

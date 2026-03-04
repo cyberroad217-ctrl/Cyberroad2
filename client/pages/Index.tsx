@@ -5,14 +5,40 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import { Product, AISyncResponse } from "@shared/api";
 
-const products = [
+const getIconByName = (name: string) => {
+  const icons: Record<string, JSX.Element> = {
+    Radio: <Radio className="w-8 h-8" />,
+    Layers: <Layers className="w-8 h-8" />,
+    Terminal: <Terminal className="w-8 h-8" />,
+    Globe: <Globe className="w-8 h-8" />,
+    Brain: <Brain className="w-8 h-8" />,
+    Zap: <Zap className="w-8 h-8" />,
+    Activity: <Activity className="w-8 h-8" />,
+    Database: <Database className="w-8 h-8" />,
+    Shield: <Shield className="w-8 h-8" />,
+    ShieldCheck: <ShieldCheck className="w-8 h-8" />,
+    Mail: <Mail className="w-8 h-8" />,
+    BarChart3: <BarChart3 className="w-8 h-8" />,
+    Download: <Download className="w-8 h-8" />,
+    Microchip: <Microchip className="w-8 h-8" />,
+    Cpu: <Cpu className="w-8 h-8" />,
+    HardDrive: <HardDrive className="w-8 h-8" />,
+    Lock: <Lock className="w-8 h-8" />,
+    Plus: <Plus className="w-8 h-8" />,
+    Share2: <Share2 className="w-8 h-8" />
+  };
+  return icons[name] || <Zap className="w-8 h-8" />;
+};
+
+const products: Product[] = [
   {
     id: "auto-1",
     name: "Neural Workflow Automator",
     category: "AI Automation",
     price: "$197.00",
-    icon: <Radio className="w-8 h-8" />,
+    iconName: "Radio",
     description: "Enterprise-grade AI automation system for complex business processes. Includes autonomous agent scripts and integration logic.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves time-consuming manual data entry and multi-app orchestration.",
@@ -26,7 +52,7 @@ const products = [
     name: "AI Business Starter Kit",
     category: "Business Kit",
     price: "$297.00",
-    icon: <Layers className="w-8 h-8" />,
+    iconName: "Layers",
     description: "Complete blueprint for launching an AI-first digital business in 2026. 100% digital software solution.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the 'zero to one' hurdle for new AI entrepreneurs.",
@@ -40,7 +66,7 @@ const products = [
     name: "Prompt Engineering Master Bundle",
     category: "Prompting",
     price: "$97.00",
-    icon: <Terminal className="w-8 h-8" />,
+    iconName: "Terminal",
     description: "The ultimate collection of 5,000+ high-converting prompts for LLMs. Optimized for 2026 models.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves poor AI output quality and inconsistent results.",
@@ -54,7 +80,7 @@ const products = [
     name: "Micro SaaS Starter Template",
     category: "SaaS Template",
     price: "$497.00",
-    icon: <Globe className="w-8 h-8" />,
+    iconName: "Globe",
     description: "A production-ready Next.js & AI framework for launching subscription-based micro-apps instantly.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the long development cycles for AI applications.",
@@ -68,7 +94,7 @@ const products = [
     name: "AI Marketing Automation Kit",
     category: "Marketing",
     price: "$147.00",
-    icon: <Activity className="w-8 h-8" />,
+    iconName: "Activity",
     description: "Autonomous marketing engine that handles ad copy, social posts, and email sequences automatically.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves high agency costs and manual content posting fatigue.",
@@ -82,7 +108,7 @@ const products = [
     name: "AI Passive Income System",
     category: "Income System",
     price: "$397.00",
-    icon: <Zap className="w-8 h-8" />,
+    iconName: "Zap",
     description: "Autonomous system for generating and selling niche digital products on autopilot.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the challenge of building passive revenue streams.",
@@ -96,7 +122,7 @@ const products = [
     name: "AI Agent Deployment Framework",
     category: "AI Agents",
     price: "$597.00",
-    icon: <Brain className="w-8 h-8" />,
+    iconName: "Brain",
     description: "Deploy a swarm of AI agents to manage customer support, research, and data analysis.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves high labor costs for repetitive digital tasks.",
@@ -110,7 +136,7 @@ const products = [
     name: "AI Resell Rights Bundle",
     category: "Resell Rights",
     price: "$997.00",
-    icon: <BarChart3 className="w-8 h-8" />,
+    iconName: "BarChart3",
     description: "Massive library of high-demand AI tools with full commercial resell rights (PLR).",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the lack of ownable products to sell in a store.",
@@ -156,19 +182,37 @@ export default function Index() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSync = () => {
+  const handleSync = async () => {
     setIsSyncing(true);
     toast.info("Synchronizing with AI Neural Network...");
-    setTimeout(() => {
-      const newProducts = [...products].sort(() => Math.random() - 0.5);
-      setVisibleProducts(newProducts);
+
+    try {
+      const response = await fetch("/api/ai-sync");
+      if (!response.ok) throw new Error("Sync failed");
+
+      const data: AISyncResponse = await response.json();
+      setVisibleProducts(prev => [...data.products, ...prev]);
       setIsSyncing(false);
       toast.success("New AI assets synchronized successfully.");
+
       const marketplaceEl = document.getElementById('marketplace');
       if (marketplaceEl) {
         window.scrollTo({ top: marketplaceEl.offsetTop - 100, behavior: 'smooth' });
       }
-    }, 1500);
+    } catch (error) {
+      console.error("AI Sync failed:", error);
+      toast.error("Network sync failed. Falling back to simulation.");
+
+      setTimeout(() => {
+        const newProducts = [...products].sort(() => Math.random() - 0.5);
+        setVisibleProducts(newProducts);
+        setIsSyncing(false);
+        const marketplaceEl = document.getElementById('marketplace');
+        if (marketplaceEl) {
+          window.scrollTo({ top: marketplaceEl.offsetTop - 100, behavior: 'smooth' });
+        }
+      }, 1000);
+    }
   };
 
   const handleQuickAdd = (item: string) => {
@@ -235,7 +279,7 @@ export default function Index() {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="lg:col-span-5 hidden lg:block"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -261,8 +305,8 @@ export default function Index() {
                       <span className="text-white">82.4%</span>
                     </div>
                     <div className="w-full h-1 bg-white/5">
-                      <motion.div 
-                        className="h-full bg-white" 
+                      <motion.div
+                        className="h-full bg-white"
                         animate={{ width: ["10%", "82%", "75%", "82%"] }}
                         transition={{ duration: 5, repeat: Infinity }}
                       />
@@ -349,10 +393,10 @@ export default function Index() {
             <p className="text-[9px] text-ash-600 uppercase tracking-widest mt-2 italic font-mono">Disclaimer: All products are digital AI software tools delivered electronically. No physical hardware is sold.</p>
           </div>
           <div className="flex items-center gap-4">
-            <Button 
+            <Button
               onClick={handleSync}
               disabled={isSyncing}
-              variant="outline" 
+              variant="outline"
               className="rounded-none border-white/20 hover:bg-white hover:text-black transition-all h-14 px-10 text-xs font-bold tracking-widest"
             >
               {isSyncing ? "SYNCING..." : "NEXT SYNC"}
@@ -373,20 +417,20 @@ export default function Index() {
             >
               {/* Hover effect overlays */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              
+
               <div className="p-10 relative z-10">
                 <div className="flex justify-between items-start mb-8">
                   <div
                     onClick={() => window.open(STRIPE_LINK, '_blank')}
                     className="p-5 border border-white/10 bg-black group-hover:border-white transition-all duration-500 cursor-pointer hover:bg-white hover:text-black"
                   >
-                    {product.icon}
+                    {getIconByName(product.iconName)}
                   </div>
                   <Badge variant="secondary" className="rounded-none bg-white/5 text-ash-400 border-none uppercase text-[9px] tracking-[0.2em] px-4 py-1">
                     {product.category}
                   </Badge>
                 </div>
-                
+
                 <h3 className="text-3xl font-bold uppercase tracking-tighter mb-3 group-hover:translate-x-1 transition-transform duration-500">{product.name}</h3>
                 <p className="text-ash-400 text-sm mb-4 leading-relaxed font-light">
                   {product.description}
@@ -454,8 +498,8 @@ export default function Index() {
             animate={{ y: [0, 5, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               className="group hover:bg-transparent hover:text-white transition-all flex flex-col items-center gap-6 h-auto"
               onClick={handleSync}
             >

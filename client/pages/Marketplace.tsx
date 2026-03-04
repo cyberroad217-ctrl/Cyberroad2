@@ -5,14 +5,36 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { Product, AISyncResponse } from "@shared/api";
 
-const allProducts = [
+const getIconByName = (name: string) => {
+  const icons: Record<string, JSX.Element> = {
+    Radio: <Radio />,
+    Layers: <Layers />,
+    Terminal: <Terminal />,
+    Globe: <Globe />,
+    Brain: <Brain />,
+    Zap: <Zap />,
+    Activity: <Activity />,
+    Database: <Database />,
+    Shield: <Shield />,
+    ShieldCheck: <ShieldCheck />,
+    Mail: <Mail />,
+    BarChart3: <BarChart3 />,
+    Download: <Download />,
+    Microchip: <Microchip />,
+    Cpu: <Cpu />
+  };
+  return icons[name] || <Zap />;
+};
+
+const allProducts: Product[] = [
   {
     id: "auto-1",
     name: "Neural Workflow Automator",
     category: "Automation",
     price: "$197.00",
-    icon: <Radio />,
+    iconName: "Radio",
     description: "Enterprise-grade AI automation system for complex business processes. Includes autonomous agent scripts and integration logic.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves time-consuming manual data entry and multi-app orchestration.",
@@ -26,7 +48,7 @@ const allProducts = [
     name: "AI Business Starter Kit",
     category: "Starter Kit",
     price: "$297.00",
-    icon: <Layers />,
+    iconName: "Layers",
     description: "Complete blueprint for launching an AI-first digital business in 2026. 100% digital software solution.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the 'zero to one' hurdle for new AI entrepreneurs.",
@@ -40,7 +62,7 @@ const allProducts = [
     name: "Prompt Engineering Master Bundle",
     category: "Prompts",
     price: "$97.00",
-    icon: <Terminal />,
+    iconName: "Terminal",
     description: "The ultimate collection of 5,000+ high-converting prompts for LLMs. Optimized for 2026 models.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves poor AI output quality and inconsistent results.",
@@ -54,7 +76,7 @@ const allProducts = [
     name: "AI Content Generation Engine",
     category: "Content",
     price: "$147.00",
-    icon: <Radio />,
+    iconName: "Radio",
     description: "Autonomous engine for generating high-quality blog posts, social media updates, and newsletters.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the struggle of consistent content creation.",
@@ -68,7 +90,7 @@ const allProducts = [
     name: "AI SaaS Starter Template",
     category: "SaaS",
     price: "$497.00",
-    icon: <Globe />,
+    iconName: "Globe",
     description: "A production-ready Next.js & AI framework for launching subscription-based micro-apps instantly.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the long development cycles for AI applications.",
@@ -82,7 +104,7 @@ const allProducts = [
     name: "No-Code AI Workflow System",
     category: "No-Code",
     price: "$127.00",
-    icon: <Activity />,
+    iconName: "Activity",
     description: "Visual workflow builder for connecting AI models to your favorite apps without writing code.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves technical barriers to AI adoption for non-coders.",
@@ -96,7 +118,7 @@ const allProducts = [
     name: "AI Marketing Automation Kit",
     category: "Marketing",
     price: "$177.00",
-    icon: <Activity />,
+    iconName: "Activity",
     description: "Full-stack marketing automation suite including ad copy gen, lead scoring, and email nurturing.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves high marketing costs and low conversion rates.",
@@ -110,7 +132,7 @@ const allProducts = [
     name: "AI eCommerce Automation System",
     category: "eCommerce",
     price: "$397.00",
-    icon: <Database />,
+    iconName: "Database",
     description: "Automate product descriptions, customer support, and inventory forecasting with neural AI.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves scaling issues in manual eCommerce management.",
@@ -124,7 +146,7 @@ const allProducts = [
     name: "AI Passive Income System",
     category: "Income",
     price: "$247.00",
-    icon: <Zap />,
+    iconName: "Zap",
     description: "Deploy autonomous systems that generate and sell digital assets on autopilot.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the lack of ownable passive revenue streams.",
@@ -138,7 +160,7 @@ const allProducts = [
     name: "AI Agent Deployment Framework",
     category: "Agents",
     price: "$597.00",
-    icon: <Brain />,
+    iconName: "Brain",
     description: "Advanced framework for deploying and managing custom AI agents for any business task.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the complexity of managing multiple AI models.",
@@ -152,7 +174,7 @@ const allProducts = [
     name: "AI Chatbot Deployment Kit",
     category: "Chatbots",
     price: "$87.00",
-    icon: <Mail />,
+    iconName: "Mail",
     description: "Deploy professional, multi-lingual AI chatbots for support and sales in minutes.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves poor customer response times and high support load.",
@@ -166,7 +188,7 @@ const allProducts = [
     name: "AI Social Media Automation Tool",
     category: "Social",
     price: "$127.00",
-    icon: <Share2 />,
+    iconName: "Share2",
     description: "Automate your entire social presence from content creation to engagement and DM replies.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the massive time commitment of social media growth.",
@@ -180,7 +202,7 @@ const allProducts = [
     name: "AI Funnel Builder System",
     category: "Funnels",
     price: "$297.00",
-    icon: <Layers />,
+    iconName: "Layers",
     description: "AI-driven funnel builder that writes your copy and optimizes layouts for maximum conversion.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves low conversion rates and complex tech setups.",
@@ -194,7 +216,7 @@ const allProducts = [
     name: "AI Data Analysis Toolkit",
     category: "Data",
     price: "$187.00",
-    icon: <BarChart3 />,
+    iconName: "BarChart3",
     description: "Powerful AI toolkit for extracting insights, predicting trends, and automating reports.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves data overwhelm and manual spreadsheet analysis.",
@@ -208,7 +230,7 @@ const allProducts = [
     name: "AI Trading Bot Framework",
     category: "Finance",
     price: "$897.00",
-    icon: <Zap />,
+    iconName: "Zap",
     description: "Educational software framework for building and testing AI-driven trading strategies.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the steep learning curve of algorithmic trading.",
@@ -222,7 +244,7 @@ const allProducts = [
     name: "AI Resume & Job Automation Kit",
     category: "Career",
     price: "$67.00",
-    icon: <ShieldCheck />,
+    iconName: "ShieldCheck",
     description: "Automate your job search, resume optimization, and interview prep with custom AI agents.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the exhausting manual job application process.",
@@ -236,7 +258,7 @@ const allProducts = [
     name: "AI Productivity Dashboard",
     category: "Productivity",
     price: "$47.00",
-    icon: <Terminal />,
+    iconName: "Terminal",
     description: "Centralized AI-powered dashboard for managing tasks, notes, and neural workflows.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves digital fragmentation and task scatter.",
@@ -250,7 +272,7 @@ const allProducts = [
     name: "AI Website Monetization System",
     category: "Monetization",
     price: "$347.00",
-    icon: <Globe />,
+    iconName: "Globe",
     description: "Automated system for maximizing revenue from any website through AI ad placement and affiliate logic.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves low revenue yield from existing web traffic.",
@@ -264,7 +286,7 @@ const allProducts = [
     name: "AI Digital Resell Rights Bundle",
     category: "Resell",
     price: "$1,497.00",
-    icon: <BarChart3 />,
+    iconName: "BarChart3",
     description: "Complete library of high-demand AI digital products with Master Resell Rights (MRR).",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the lack of ownable products for your own store.",
@@ -278,7 +300,7 @@ const allProducts = [
     name: "Subscription Micro SaaS Template",
     category: "Micro SaaS",
     price: "$397.00",
-    icon: <Layers />,
+    iconName: "Layers",
     description: "Lightweight Next.js template optimized for launching AI-powered micro-services.",
     details: "Instant Digital Download (ZIP File) • Includes Software Files + Prompt Bundles + Automation Templates + Commercial License • Delivered instantly after secure Stripe checkout",
     problem: "Solves the overhead of complex SaaS development.",
@@ -299,24 +321,41 @@ export default function Marketplace() {
 
   const categories = ["All", "Automation", "Starter Kit", "Prompts", "Content", "SaaS", "No-Code", "Marketing", "eCommerce", "Income", "Agents", "Chatbots", "Social", "Funnels", "Data", "Finance", "Career", "Productivity", "Monetization", "Resell", "Micro SaaS"];
 
-  const filteredProducts = visibleProducts.filter(p => 
+  const filteredProducts = visibleProducts.filter(p =>
     (filter === "All" || p.category === filter) &&
     (p.name.toLowerCase().includes(search.toLowerCase()))
   );
 
-  const handleSync = () => {
+  const handleSync = async () => {
     setIsSyncing(true);
-    toast.info("Fetching new AI generated assets...");
-    setTimeout(() => {
-      // Shuffle and "generate" new IDs to simulate fresh content
-      const synced = [...allProducts].sort(() => Math.random() - 0.5).map(p => ({
-        ...p,
-        id: Math.random().toString(36).substring(7)
-      }));
-      setVisibleProducts(synced);
+    toast.info("Connecting to Neural Clusters for AI-generated assets...");
+
+    try {
+      const response = await fetch("/api/ai-sync");
+      if (!response.ok) throw new Error("Sync failed");
+
+      const data: AISyncResponse = await response.json();
+
+      // Merge with existing or replace?
+      // The requirement suggests "AI agents are generating new assets",
+      // so let's prepend them to the list to show "new" content.
+      setVisibleProducts(prev => [...data.products, ...prev]);
+
       setIsSyncing(false);
-      toast.success("Marketplace synchronized with Neural Network.");
-    }, 1200);
+      toast.success("Marketplace synchronized with Neural Network. New assets deployed.");
+    } catch (error) {
+      console.error("AI Sync failed:", error);
+      toast.error("Network synchronization failed. Falling back to local cache.");
+      setIsSyncing(false);
+      // Fallback simulation
+      setTimeout(() => {
+        const synced = [...allProducts].sort(() => Math.random() - 0.5).map(p => ({
+          ...p,
+          id: Math.random().toString(36).substring(7)
+        }));
+        setVisibleProducts(synced);
+      }, 500);
+    }
   };
 
   return (
@@ -395,7 +434,7 @@ export default function Marketplace() {
                       onClick={() => window.open(STRIPE_LINK, '_blank')}
                       className="p-4 border border-white/10 bg-black group-hover:border-white transition-colors cursor-pointer hover:bg-white hover:text-black"
                     >
-                      {product.icon}
+                      {getIconByName(product.iconName)}
                     </div>
                     <Badge variant="secondary" className="rounded-none bg-white/5 text-ash-400 border-none uppercase text-[9px] tracking-widest">
                       {product.category}
@@ -454,9 +493,9 @@ export default function Marketplace() {
           )}
 
           <div className="mt-20 border-t border-white/10 pt-12 flex justify-center">
-             <Button 
-                onClick={handleSync} 
-                variant="outline" 
+             <Button
+                onClick={handleSync}
+                variant="outline"
                 className="rounded-none border-white/20 h-14 px-12 uppercase font-bold tracking-[0.3em] text-xs hover:bg-white hover:text-black transition-all"
               >
                 Load Next Neural Segment
