@@ -151,9 +151,42 @@ const STRIPE_LINK = "https://buy.stripe.com/test_4gM28r0k5dxs5JB6lq93y00";
 
 export default function Index() {
   const [productCount, setProductCount] = useState(3863999762);
-  const [visibleProducts, setVisibleProducts] = useState(products);
-  const [isSyncing, setIsSyncing] = useState(false);
+  const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
   const [systemLogs, setSystemLogs] = useState<string[]>([]);
+  const [isSyncing, setIsSyncing] = useState(false);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch("/api/products");
+      if (!response.ok) throw new Error("Failed to fetch products");
+      const data = await response.json();
+
+      const mapped = data.products.map((p: any) => ({
+        id: p.id,
+        name: p.name,
+        category: p.category,
+        price: p.price,
+        iconName: p.icon_name || "Zap",
+        description: p.description,
+        details: p.details,
+        problem: p.problem,
+        target: p.target,
+        income: p.income,
+        includes: p.includes,
+        stats: p.stats || {},
+        downloadUrl: p.download_url
+      }));
+
+      setVisibleProducts(mapped.length > 0 ? mapped.slice(0, 8) : products);
+    } catch (error) {
+      console.error("Fetch error:", error);
+      setVisibleProducts(products);
+    }
+  };
 
   // Simulated AI adding products nonstop
   useEffect(() => {

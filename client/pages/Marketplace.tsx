@@ -317,9 +317,49 @@ export default function Marketplace() {
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
   const [isSyncing, setIsSyncing] = useState(false);
-  const [visibleProducts, setVisibleProducts] = useState(allProducts);
+  const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const categories = ["All", "Automation", "Starter Kit", "Prompts", "Content", "SaaS", "No-Code", "Marketing", "eCommerce", "Income", "Agents", "Chatbots", "Social", "Funnels", "Data", "Finance", "Career", "Productivity", "Monetization", "Resell", "Micro SaaS"];
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/products");
+      if (!response.ok) throw new Error("Failed to fetch products");
+      const data = await response.json();
+
+      // Map database snake_case to frontend camelCase if necessary,
+      // but my Product interface uses camelCase.
+      // The backend 'publish.ts' uses snake_case for DB columns.
+      const mapped = data.products.map((p: any) => ({
+        id: p.id,
+        name: p.name,
+        category: p.category,
+        price: p.price,
+        iconName: p.icon_name || "Zap",
+        description: p.description,
+        details: p.details,
+        problem: p.problem,
+        target: p.target,
+        income: p.income,
+        includes: p.includes,
+        stats: p.stats || {},
+        downloadUrl: p.download_url
+      }));
+
+      setVisibleProducts(mapped.length > 0 ? mapped : allProducts);
+    } catch (error) {
+      console.error("Fetch error:", error);
+      setVisibleProducts(allProducts);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const filteredProducts = visibleProducts.filter(p =>
     (filter === "All" || p.category === filter) &&
@@ -336,9 +376,7 @@ export default function Marketplace() {
 
       const data: AISyncResponse = await response.json();
 
-      // Merge with existing or replace?
-      // The requirement suggests "AI agents are generating new assets",
-      // so let's prepend them to the list to show "new" content.
+      // Prepend new AI assets
       setVisibleProducts(prev => [...data.products, ...prev]);
 
       setIsSyncing(false);
@@ -347,14 +385,7 @@ export default function Marketplace() {
       console.error("AI Sync failed:", error);
       toast.error("Network synchronization failed. Falling back to local cache.");
       setIsSyncing(false);
-      // Fallback simulation
-      setTimeout(() => {
-        const synced = [...allProducts].sort(() => Math.random() - 0.5).map(p => ({
-          ...p,
-          id: Math.random().toString(36).substring(7)
-        }));
-        setVisibleProducts(synced);
-      }, 500);
+      fetchProducts(); // Refresh from DB
     }
   };
 

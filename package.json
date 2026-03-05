@@ -22,9 +22,12 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@supabase/supabase-js": "^2.98.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "jszip": "^3.10.1",
     "openai": "^6.25.0",
+    "pdf-parse": "^2.4.5",
     "zod": "^3.25.76"
   },
   "devDependencies": {

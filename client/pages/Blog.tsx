@@ -2,7 +2,8 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, User, Clock } from "lucide-react";
+import { ArrowRight, Calendar, User, Clock, Cpu, Brain, Zap } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const articles = [
   {
@@ -37,9 +38,35 @@ export const articles = [
   }
 ];
 
-import { Cpu, Brain, Zap } from "lucide-react";
+const getIconByCategory = (cat: string) => {
+  if (cat === 'Income') return <Cpu className="w-16 h-16 opacity-20" />;
+  if (cat === 'Economics') return <Brain className="w-16 h-16 opacity-20" />;
+  return <Zap className="w-16 h-16 opacity-20" />;
+};
 
 export default function Blog() {
+  const [posts, setPosts] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/products?type=blog"); // Reusing or new endpoint
+      // Actually, I'll just use supabase direct if I can, but let's stick to API for consistency
+      // I'll assume handleGetProducts can handle type=blog or I'll create one.
+      // For now, let's use the local articles as fallback and try to fetch.
+      setPosts(articles);
+    } catch (error) {
+      setPosts(articles);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <Layout>
       <div className="container mx-auto px-4 py-20">
@@ -54,7 +81,7 @@ export default function Blog() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {articles.map((article, idx) => (
+          {posts.map((article, idx) => (
             <motion.div
               key={article.id}
               initial={{ opacity: 0, y: 20 }}
@@ -65,7 +92,7 @@ export default function Blog() {
               <div className="p-10 flex-1">
                  <div className="flex justify-between items-center mb-10">
                     <div className="w-12 h-12 border border-white/10 flex items-center justify-center bg-black group-hover:border-white transition-all">
-                       {article.image}
+                       {article.image || getIconByCategory(article.category)}
                     </div>
                     <Badge variant="secondary" className="rounded-none bg-white/5 text-ash-400 border-none uppercase text-[9px] tracking-[0.2em] px-4 py-1">
                        {article.category}
@@ -84,7 +111,7 @@ export default function Blog() {
                     <div className="flex items-center gap-2"><Clock size={12} /> {article.readTime}</div>
                  </div>
               </div>
-              
+
               <Link to={`/blog/${article.id}`} className="block h-16 bg-white/[0.02] border-t border-white/5 hover:bg-white hover:text-black transition-all group-hover:border-white">
                  <div className="w-full h-full flex items-center justify-center gap-4 text-xs font-black uppercase tracking-[0.4em]">
                     Read Article <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

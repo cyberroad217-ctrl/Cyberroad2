@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
+import SupabaseProductGrid from "@/components/SupabaseProductGrid";
 
 const brainNodes = [
   {
@@ -94,58 +95,7 @@ export default function MultiBrains() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {brainNodes.map((node, idx) => (
-            <motion.div
-              key={node.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="group border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 overflow-hidden"
-            >
-              <div className="p-10">
-                <div className="flex justify-between items-start mb-10">
-                  <div
-                    onClick={() => handlePurchase(node.name)}
-                    className="p-6 border border-white/10 bg-black group-hover:border-white transition-all duration-500 cursor-pointer hover:bg-white hover:text-black"
-                  >
-                    {node.icon}
-                  </div>
-                  <Badge variant="secondary" className="rounded-none bg-white/5 text-ash-400 border-none uppercase text-[9px] tracking-[0.2em] px-4 py-1">
-                    {node.category}
-                  </Badge>
-                </div>
-
-                <h3 className="text-3xl font-bold uppercase tracking-tighter mb-4">{node.name}</h3>
-                <p className="text-ash-400 text-sm mb-10 leading-relaxed min-h-[60px]">
-                  {node.description}
-                  <span className="block mt-4 text-[10px] font-bold text-white/40 uppercase tracking-widest">
-                    Includes: ZIP File + PDF Guide + Automation Templates + License
-                  </span>
-                </p>
-
-                <div className="space-y-4 mb-10 pt-8 border-t border-white/10">
-                  {Object.entries(node.stats).map(([key, val]) => (
-                    <div key={key} className="flex justify-between items-center">
-                      <span className="text-[10px] uppercase text-ash-600 font-bold tracking-widest">{key}</span>
-                      <span className="text-sm font-mono font-bold text-white">{val}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between gap-6 pt-4">
-                  <span className="text-2xl font-black font-mono">{node.price}</span>
-                  <Button
-                    onClick={() => handlePurchase(node.name)}
-                    className="bg-white text-black hover:bg-ash-200 rounded-none px-8 font-black uppercase tracking-widest text-xs h-12"
-                  >
-                    Get Access
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <SupabaseProductGrid category="Agents" fallbackProducts={brainNodes} />
       </div>
     </Layout>
   );
