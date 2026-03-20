@@ -1,11 +1,18 @@
 import { RequestHandler } from "express";
-import { supabase } from "@shared/supabase";
-import pdf from "pdf-parse";
+import { supabase } from "../../shared/supabase";
+import { PDFParse } from "pdf-parse";
 import JSZip from "jszip";
 import OpenAI from "openai";
-import { Product } from "@shared/api";
+import { Product } from "../../shared/api";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let openai: OpenAI | null = null;
+
+function getOpenAI(): OpenAI {
+  if (!openai) {
+    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return openai;
+}
 
 // Cost modeling constants
 const COST_PER_1K_CHARS = 0.015; // Simulated OpenAI TTS HD cost
@@ -24,7 +31,7 @@ export const handlePublish: RequestHandler = async (req, res) => {
 
     // 1. Text Extraction
     const pdfBuffer = Buffer.from(pdfBase64, 'base64');
-    const data = await pdf(pdfBuffer);
+    const data = await PDFParse(pdfBuffer);
     const text = data.text;
     const charCount = text.length;
 
@@ -38,7 +45,7 @@ export const handlePublish: RequestHandler = async (req, res) => {
     // Layer 3: Automated TTS pipeline (Chunked processing)
     for (let i = 0; i < chunks.length; i++) {
       console.log(`Generating audio chunk ${i+1}/${chunks.length}...`);
-      const response = await openai.audio.speech.create({
+      const response = await getOpenAI().audio.speech.create({
         model: "tts-1",
         voice: "alloy",
         input: chunks[i],

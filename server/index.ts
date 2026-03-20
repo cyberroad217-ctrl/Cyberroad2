@@ -3,9 +3,8 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleAISync } from "./routes/ai-sync";
-import { handlePublish, handleGetProducts } from "./routes/publish";
 
-export function createServer() {
+export async function createServer() {
   const app = express();
 
   // Middleware
@@ -21,8 +20,20 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
   app.get("/api/ai-sync", handleAISync);
+
+  // Lazy-load Supabase-dependent routes
+  const { handlePublish, handleGetProducts } = await import("./routes/publish");
+  const { handleAgentLoop, startAgentLoopScheduler } = await import("./routes/agent-loop");
+
   app.post("/api/publish", handlePublish);
   app.get("/api/products", handleGetProducts);
+  app.post("/api/agent-loop", handleAgentLoop);
+  app.get("/api/agent-loop", handleAgentLoop);
+
+  // Start scheduled agent loop in production
+  if (process.env.NODE_ENV !== "development") {
+    startAgentLoopScheduler();
+  }
 
   return app;
 }
